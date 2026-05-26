@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GovMeet — 民間と政府をつなぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', -apple-system, 'Helvetica Neue', Arial, sans-serif; color: #1A1A2E; font-weight: 400; -webkit-font-smoothing: antialiased; }
+
+/* ナビ */
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; border-bottom: 1px solid #E8EDF5; background: #fff; position: sticky; top: 0; z-index: 10; }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-product { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 500; color: #0E2148; letter-spacing: 0.02em; }
+.nav-links { display: flex; gap: 28px; }
+.nav-link { font-size: 13px; color: #7A8AA0; cursor: pointer; text-decoration: none; letter-spacing: 0.03em; transition: color 0.15s; }
+.nav-link:hover { color: #0E2148; }
+.nav-cta { display: flex; gap: 10px; align-items: center; }
+.btn-ghost { font-size: 13px; padding: 7px 18px; border: 1px solid #DDE3EE; border-radius: 6px; background: transparent; color: #4A5A78; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.02em; transition: border-color 0.15s; }
+.btn-ghost:hover { border-color: #0E2148; }
+.btn-navy { font-size: 13px; padding: 7px 18px; border: none; border-radius: 6px; background: #0E2148; color: #fff; cursor: pointer; font-weight: 500; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; transition: background 0.15s; }
+.btn-navy:hover { background: #162E60; }
+
+/* ヒーロー */
+.hero { background: linear-gradient(160deg, #071433 0%, #0E2148 60%, #0F2550 100%); padding: 6rem 2rem 5rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,162,39,0.07) 0%, transparent 70%); pointer-events: none; }
+.eyebrow { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; color: #C9A227; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.75rem; padding: 5px 16px; border: 1px solid rgba(201,162,39,0.35); border-radius: 99px; background: rgba(201,162,39,0.07); font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.hero h1 { font-family: 'Noto Serif JP', serif; font-size: 48px; font-weight: 500; color: #fff; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+.hero h1 em { color: #C9A227; font-style: normal; }
+.hero-sub-title { font-size: 16px; color: #8899BB; margin-bottom: 1rem; font-weight: 300; line-height: 1.8; letter-spacing: 0.04em; }
+.hero-p { font-size: 14px; color: #6A7FA8; line-height: 2; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; letter-spacing: 0.03em; }
+.hero-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 3.5rem; }
+.btn-gold { font-size: 14px; font-weight: 500; padding: 13px 32px; border-radius: 7px; background: #C9A227; color: #0E2148; border: none; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; transition: background 0.15s, transform 0.1s; }
+.btn-gold:hover { background: #D4AE30; transform: translateY(-1px); }
+.btn-outline { font-size: 14px; padding: 13px 32px; border-radius: 7px; background: transparent; color: #8899BB; border: 1px solid rgba(136,153,187,0.4); cursor: pointer; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; transition: border-color 0.15s; }
+.btn-outline:hover { border-color: #8899BB; }
+
+/* ヒーロー統計バー */
+.hero-stats { display: flex; align-items: center; justify-content: center; gap: 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem 2rem; max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.stat-item { text-align: center; flex: 1; }
+.stat-num { font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 500; color: #fff; line-height: 1; margin-bottom: 6px; letter-spacing: -0.01em; }
+.stat-num span { font-size: 14px; font-weight: 400; color: #C9A227; margin-left: 2px; letter-spacing: 0; }
+.stat-label { font-size: 11px; color: #7A8AA0; letter-spacing: 0.06em; font-weight: 300; }
+.stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); flex-shrink: 0; margin: 0 8px; }
+
+/* セクション共通 */
+section { padding: 5rem 2rem; }
+.gray-bg { background: #F4F6FA; }
+.navy-bg { background: linear-gradient(160deg, #071433 0%, #0E2148 100%); }
+.sec-ey { font-size: 11px; color: #C9A227; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; margin-bottom: 10px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.sec-h2 { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 500; color: #0E2148; text-align: center; margin-bottom: 10px; letter-spacing: 0.01em; line-height: 1.4; }
+.sec-h2.white { color: #fff; }
+.sec-sub { font-size: 14px; color: #7A8AA0; text-align: center; margin-bottom: 3rem; line-height: 1.9; max-width: 500px; margin-left: auto; margin-right: auto; font-weight: 300; letter-spacing: 0.03em; }
+.sec-sub.muted { color: #8899BB; }
+
+/* ステークホルダーフロー */
+.flow-wrap { overflow-x: auto; padding: 1rem 0; }
+.flow { display: flex; align-items: center; justify-content: center; gap: 0; min-width: 600px; }
+.flow-node { text-align: center; flex-shrink: 0; }
+.flow-icon { width: 54px; height: 54px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 22px; }
+.flow-label { font-size: 11px; font-weight: 500; color: #0E2148; line-height: 1.4; letter-spacing: 0.04em; }
+.flow-sub { font-size: 10px; color: #AAB4C8; margin-top: 2px; letter-spacing: 0.03em; }
+.flow-arrow { display: flex; flex-direction: column; align-items: center; padding: 0 6px; margin-bottom: 22px; }
+.flow-arrow-line { width: 28px; height: 1px; background: #C9A227; }
+.flow-arrow-head { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 6px solid #C9A227; margin-top: -1px; }
+.flow-center { width: 58px; height: 58px; border-radius: 50%; background: #C9A227; display: flex; align-items: center; justify-content: center; margin: 0 8px 22px; font-family: 'Noto Serif JP', serif; font-size: 10px; font-weight: 500; color: #0E2148; text-align: center; line-height: 1.3; flex-shrink: 0; }
+.flow-note { text-align: center; font-size: 12px; color: #AAB4C8; margin-top: 1.25rem; letter-spacing: 0.03em; font-weight: 300; }
+
+/* カードグリッド */
+.grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.card { background: #fff; border: 1px solid #E8EDF5; border-radius: 12px; padding: 1.75rem 1.5rem; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4px 24px rgba(14,33,72,0.08); }
+.card-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 20px; }
+.card-name { font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 500; color: #0E2148; margin-bottom: 8px; letter-spacing: 0.02em; }
+.card-desc { font-size: 13px; color: #7A8AA0; line-height: 1.75; font-weight: 300; letter-spacing: 0.02em; }
+
+/* ペインポイント */
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pain-card { background: #fff; border: 1px solid #E8EDF5; border-radius: 10px; padding: 1.25rem 1.25rem; display: flex; gap: 12px; }
+.pain-icon { font-size: 16px; color: #B0B8CC; flex-shrink: 0; margin-top: 2px; }
+.pain-title { font-size: 13px; font-weight: 500; color: #0E2148; margin-bottom: 5px; letter-spacing: 0.02em; }
+.pain-text { font-size: 12px; color: #7A8AA0; line-height: 1.75; font-weight: 300; }
+.pain-tag { display: inline-block; font-size: 10px; background: #EEEDFE; color: #3C3489; padding: 1px 8px; border-radius: 99px; margin-bottom: 5px; letter-spacing: 0.03em; }
+
+/* ステップ */
+.steps { display: flex; flex-direction: column; gap: 0; max-width: 560px; margin: 0 auto; }
+.step { display: grid; grid-template-columns: 52px 1fr; }
+.step-left { display: flex; flex-direction: column; align-items: center; }
+.step-num { width: 36px; height: 36px; border-radius: 50%; background: #C9A227; color: #0E2148; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Noto Serif JP', serif; }
+.step-line { width: 1px; background: rgba(201,162,39,0.2); flex: 1; margin: 6px 0; min-height: 28px; }
+.step-body { padding: 0 0 32px 16px; }
+.step-title { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 500; color: #fff; margin-bottom: 6px; letter-spacing: 0.02em; }
+.step-text { font-size: 13px; color: #8899BB; line-height: 1.85; font-weight: 300; letter-spacing: 0.03em; }
+.step-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: #C9A227; background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3); padding: 3px 11px; border-radius: 99px; margin-top: 10px; letter-spacing: 0.03em; }
+
+/* 機能グリッド */
+.feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: #E8EDF5; border: 1px solid #E8EDF5; border-radius: 12px; overflow: hidden; }
+.feat { background: #fff; padding: 1.75rem 1.5rem; transition: background 0.15s; }
+.feat:hover { background: #FAFBFD; }
+.feat-icon { font-size: 22px; color: #C9A227; margin-bottom: 12px; }
+.feat-name { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 500; color: #0E2148; margin-bottom: 6px; letter-spacing: 0.02em; }
+.feat-desc { font-size: 12px; color: #7A8AA0; line-height: 1.75; font-weight: 300; letter-spacing: 0.02em; }
+.badge { display: inline-block; font-size: 10px; padding: 2px 10px; border-radius: 99px; margin-top: 10px; letter-spacing: 0.03em; }
+.badge-free { background: #EAF3DE; color: #27500A; }
+.badge-pro { background: #FFF0C0; color: #7A5800; }
+.badge-partial { background: #E6F1FB; color: #0C447C; }
+
+/* プラン */
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; max-width: 860px; margin: 0 auto; }
+.plan { background: #fff; border: 1px solid #E8EDF5; border-radius: 14px; padding: 1.75rem 1.5rem; }
+.plan.featured { border: 2px solid #C9A227; position: relative; box-shadow: 0 8px 32px rgba(201,162,39,0.12); }
+.plan-popular { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #C9A227; color: #0E2148; font-size: 11px; font-weight: 600; padding: 3px 16px; border-radius: 99px; white-space: nowrap; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.06em; }
+.plan-label { font-size: 11px; color: #AAB4C8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.plan-label.gold { color: #C9A227; }
+.plan-price { font-family: 'Noto Serif JP', serif; font-size: 30px; font-weight: 500; color: #0E2148; margin-bottom: 4px; letter-spacing: -0.02em; }
+.plan-price span { font-size: 13px; font-weight: 400; color: #7A8AA0; font-family: 'Noto Sans JP', sans-serif; }
+.plan-desc { font-size: 12px; color: #7A8AA0; margin-bottom: 16px; line-height: 1.65; border-bottom: 1px solid #F4F6FA; padding-bottom: 14px; font-weight: 300; letter-spacing: 0.02em; }
+.pf { font-size: 12px; color: #4A5A78; padding: 5px 0; border-bottom: 1px solid #F4F6FA; display: flex; align-items: flex-start; gap: 8px; line-height: 1.6; letter-spacing: 0.02em; font-weight: 300; }
+.pf:last-of-type { border-bottom: none; }
+.pf .ck { color: #C9A227; font-weight: 700; flex-shrink: 0; }
+.pf .xk { color: #DDE3EE; flex-shrink: 0; }
+.pf.dim { color: #C0C8D8; }
+.plan-btn { width: 100%; margin-top: 16px; padding: 11px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; transition: all 0.15s; }
+.pb-free { background: transparent; border: 1px solid #DDE3EE; color: #7A8AA0; }
+.pb-free:hover { border-color: #0E2148; color: #0E2148; }
+.pb-pro { background: #0E2148; border: none; color: #fff; }
+.pb-pro:hover { background: #162E60; }
+.pb-ent { background: transparent; border: 1px solid #DDE3EE; color: #C0C8D8; cursor: default; }
+.coming { font-size: 10px; background: #EEF2FA; color: #7A8AA0; padding: 1px 7px; border-radius: 99px; margin-left: 5px; letter-spacing: 0.03em; font-style: normal; vertical-align: middle; }
+.plan-highlight { font-size: 11px; color: #C9A227; background: rgba(201,162,39,0.07); border: 1px solid rgba(201,162,39,0.2); border-radius: 6px; padding: 6px 10px; margin-bottom: 12px; line-height: 1.6; letter-spacing: 0.02em; font-weight: 300; }
+
+/* 声 */
+.voice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.voice { background: #F4F6FA; border-radius: 12px; padding: 1.75rem 1.5rem; }
+.voice-text { font-size: 13px; color: #2A3A58; line-height: 1.9; margin-bottom: 16px; font-weight: 300; letter-spacing: 0.03em; }
+.voice-author { display: flex; align-items: center; gap: 10px; }
+.voice-av { width: 36px; height: 36px; border-radius: 50%; background: #EEF2FA; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 500; color: #0E2148; flex-shrink: 0; }
+.voice-name { font-size: 12px; font-weight: 500; color: #0E2148; letter-spacing: 0.03em; }
+.voice-role { font-size: 11px; color: #7A8AA0; font-weight: 300; letter-spacing: 0.03em; }
+
+/* FAQ */
+.faq-list { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+.faq-item { background: #fff; border: 1px solid #E8EDF5; border-radius: 10px; padding: 18px 20px; cursor: pointer; transition: border-color 0.15s; }
+.faq-item:hover { border-color: #C9A227; }
+.faq-q { font-size: 13px; font-weight: 500; color: #0E2148; display: flex; justify-content: space-between; gap: 10px; user-select: none; letter-spacing: 0.02em; }
+.faq-q .icon { font-size: 18px; color: #C9A227; flex-shrink: 0; transition: transform 0.2s; display: inline-block; }
+.faq-a { font-size: 12px; color: #7A8AA0; line-height: 1.85; margin-top: 12px; display: none; font-weight: 300; letter-spacing: 0.03em; }
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-q .icon { transform: rotate(180deg); }
+
+/* CTA */
+.cta-section { background: linear-gradient(160deg, #071433 0%, #0E2148 100%); padding: 6rem 2rem; text-align: center; }
+.cta-section h2 { font-family: 'Noto Serif JP', serif; font-size: 30px; font-weight: 500; color: #fff; margin-bottom: 12px; letter-spacing: 0.01em; }
+.cta-section p { font-size: 14px; color: #8899BB; margin-bottom: 2.5rem; line-height: 2; max-width: 420px; margin-left: auto; margin-right: auto; font-weight: 300; letter-spacing: 0.03em; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; }
+
+/* フッター */
+footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-size: 12px; color: #3A4E6A; letter-spacing: 0.05em; font-weight: 300; }
+.footer-links { display: flex; gap: 20px; }
+.footer-link { font-size: 12px; color: #3A4E6A; cursor: pointer; text-decoration: none; letter-spacing: 0.03em; transition: color 0.15s; }
+.footer-link:hover { color: #7A8AA0; }
+
+/* ━━━ 可読性改善: 全体フォントウェイト強化 ━━━ */
+.sec-sub { font-weight: 400; color: #4A5A78; font-size: 15px; }
+.sec-sub.muted { color: #7A8AA0; }
+.card-desc { font-weight: 400; color: #4A5A78; font-size: 13px; }
+.pain-text { font-weight: 400; color: #4A5A78; }
+.pain-title { font-size: 14px; }
+.step-text { font-weight: 400; color: #8FAABB; }
+.feat-desc { font-weight: 400; color: #4A5A78; font-size: 13px; }
+.plan-desc { font-weight: 400; color: #5A6A88; font-size: 13px; }
+.pf { font-weight: 400; color: #3A4A68; font-size: 13px; }
+.voice-text { font-weight: 400; font-size: 14px; }
+.faq-a { font-weight: 400; color: #4A5A78; font-size: 13px; }
+.faq-q { font-size: 14px; }
+.hero-sub-title { font-weight: 400; font-size: 17px; color: #99AACC; }
+.hero-p { font-weight: 400; color: #7A90B8; font-size: 15px; }
+.flow-note { font-weight: 400; color: #7A8AA0; font-size: 13px; }
+.flow-label { font-size: 12px; }
+.nav-link { font-size: 14px; }
+.sec-h2 { font-size: 28px; }
+.step-title { font-size: 17px; }
+.feat-name { font-size: 14px; }
+.card-name { font-size: 15px; }
+.plan-highlight { font-weight: 400; font-size: 12px; }
+.plan-label { font-size: 12px; }
+.plan-popular { font-size: 12px; }
+.badge { font-size: 11px; }
+.voice-name { font-size: 13px; }
+.voice-role { font-size: 12px; }
+.footer-link { font-size: 13px; }
+.footer-brand { font-size: 13px; }
+
+/* ━━━ お問い合わせモーダル ━━━ */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(7,20,51,0.6); z-index: 100; backdrop-filter: blur(3px); align-items: center; justify-content: center; padding: 1rem; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 16px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.25); }
+.modal-header { padding: 1.5rem 1.75rem 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+.modal-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 500; color: #0E2148; letter-spacing: 0.01em; }
+.modal-close { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #E8EDF5; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #AAB4C8; transition: all 0.15s; flex-shrink: 0; }
+.modal-close:hover { background: #F4F6FA; color: #0E2148; }
+.modal-body { padding: 0 1.75rem 1.75rem; }
+.m-form-group { margin-bottom: 13px; }
+.m-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.m-label { display: block; font-size: 11px; font-weight: 500; color: #4A5A78; margin-bottom: 5px; letter-spacing: 0.04em; }
+.m-label .req { color: #C9A227; margin-left: 3px; }
+.m-label .opt { color: #AAB4C8; margin-left: 3px; font-weight: 300; }
+.m-input, .m-select, .m-textarea { width: 100%; padding: 10px 13px; font-size: 13px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; color: #1A1A2E; border: 1px solid #DDE3EE; border-radius: 8px; background: #fff; letter-spacing: 0.02em; transition: border-color 0.15s, box-shadow 0.15s; outline: none; }
+.m-input:focus, .m-select:focus, .m-textarea:focus { border-color: #C9A227; box-shadow: 0 0 0 3px rgba(201,162,39,0.1); }
+.m-input::placeholder, .m-textarea::placeholder { color: #C0C8D8; }
+.m-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23AAB4C8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 13px center; padding-right: 34px; -webkit-appearance: none; cursor: pointer; }
+.m-textarea { resize: vertical; min-height: 100px; line-height: 1.75; }
+.m-submit { width: 100%; padding: 12px; background: #0E2148; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.06em; cursor: pointer; transition: background 0.15s; margin-top: 6px; }
+.m-submit:hover { background: #162E60; }
+.m-thanks { text-align: center; padding: 2.5rem 1rem; display: none; }
+.m-thanks .m-thanks-icon { font-size: 36px; margin-bottom: 12px; }
+.m-thanks h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; color: #0E2148; margin-bottom: 8px; }
+.m-thanks p { font-size: 12px; color: #7A8AA0; line-height: 1.9; font-weight: 300; }
+.m-mail-note { font-size: 11px; color: #AAB4C8; text-align: center; margin-top: 12px; font-weight: 300; letter-spacing: 0.02em; }
+.m-mail-note a { color: #7A8AA0; text-decoration: none; border-bottom: 1px solid #E8EDF5; }
+
+/* ステークホルダーグリッド */
+.sh-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 1.5rem; }
+.sh-card { background: #fff; border: 1px solid #E8EDF5; border-radius: 14px; padding: 1.75rem 1.5rem; transition: box-shadow 0.2s, transform 0.15s; }
+.sh-card:hover { box-shadow: 0 6px 28px rgba(14,33,72,0.09); transform: translateY(-2px); }
+.sh-icon { font-size: 28px; margin-bottom: 12px; }
+.sh-count { font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 500; color: #0E2148; line-height: 1; margin-bottom: 4px; }
+.sh-count span { font-size: 14px; color: #C9A227; margin-left: 2px; }
+.sh-name { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 500; color: #0E2148; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #F0F3F8; }
+.sh-desc { font-size: 13px; color: #4A5A78; line-height: 1.8; }
+.sh-note { text-align: center; padding: 14px 20px; background: rgba(201,162,39,0.06); border: 1px solid rgba(201,162,39,0.2); border-radius: 10px; font-size: 13px; color: #4A5A78; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.sh-note-icon { color: #C9A227; font-size: 14px; flex-shrink: 0; }
+
+/* ━━━ デモモーダル ━━━ */
+.demo-overlay { display: none; position: fixed; inset: 0; background: rgba(7,20,51,0.72); z-index: 200; backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 1rem; }
+.demo-overlay.open { display: flex; }
+.demo-modal { background: #fff; border-radius: 20px; width: 100%; max-width: 640px; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 32px 100px rgba(0,0,0,0.3); }
+.demo-header { padding: 1.5rem 1.75rem 0; display: flex; align-items: flex-start; justify-content: space-between; }
+.demo-header-label { font-size: 11px; color: #C9A227; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; font-weight: 300; }
+.demo-header-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 500; color: #0E2148; }
+.demo-close { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #E8EDF5; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #AAB4C8; flex-shrink: 0; margin-top: 2px; transition: all 0.15s; }
+.demo-close:hover { background: #F4F6FA; color: #0E2148; }
+.demo-tabs { display: flex; padding: 1rem 1.75rem 0; border-bottom: 1px solid #E8EDF5; margin-top: 1rem; gap: 0; }
+.demo-tab { font-size: 12px; color: #AAB4C8; padding: 8px 14px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.02em; white-space: nowrap; }
+.demo-tab:hover { color: #0E2148; }
+.demo-tab.active { color: #0E2148; border-bottom-color: #C9A227; font-weight: 500; }
+.demo-content { flex: 1; overflow-y: auto; padding: 1.5rem 1.75rem; }
+.demo-panel { display: none; }
+.demo-panel.active { display: block; }
+/* チャット */
+.chat-wrap { background: #F9FAFC; border: 1px solid #E8EDF5; border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; gap: 14px; }
+.chat-msg { display: flex; gap: 10px; }
+.chat-msg.user { flex-direction: row-reverse; }
+.chat-av { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; }
+.chat-av.ai { background: #0E2148; color: #C9A227; font-family: 'Noto Serif JP', serif; }
+.chat-av.usr { background: #EEF2FA; color: #0E2148; }
+.chat-bubble { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.75; }
+.chat-bubble.ai { background: #fff; border: 1px solid #E8EDF5; color: #2A3A58; border-radius: 4px 12px 12px 12px; }
+.chat-bubble.usr { background: #0E2148; color: #fff; border-radius: 12px 4px 12px 12px; }
+.chat-result-box { background: rgba(201,162,39,0.05); border: 1px solid rgba(201,162,39,0.18); border-radius: 8px; padding: 10px 12px; margin-top: 10px; }
+.chat-result-item { font-size: 12px; color: #3A4A68; padding: 5px 0; border-bottom: 1px solid rgba(201,162,39,0.08); display: flex; gap: 8px; }
+.chat-result-item:last-child { border-bottom: none; }
+.chat-result-item .dot { color: #C9A227; flex-shrink: 0; }
+.chat-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: #C9A227; background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.2); padding: 3px 10px; border-radius: 99px; margin-top: 8px; letter-spacing: 0.02em; }
+.chat-input-mock { display: flex; gap: 8px; margin-top: 12px; }
+.chat-input-mock input { flex: 1; padding: 10px 14px; font-size: 13px; border: 1px solid #DDE3EE; border-radius: 8px; background: #fff; color: #C0C8D8; font-family: 'Noto Sans JP', sans-serif; }
+.chat-input-mock button { padding: 10px 18px; background: #0E2148; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-family: 'Noto Sans JP', sans-serif; opacity: 0.5; cursor: default; }
+/* 議員検索 */
+.search-mock { display: flex; gap: 8px; margin-bottom: 10px; }
+.search-mock input { flex: 1; padding: 10px 14px; font-size: 13px; border: 1px solid #C9A227; border-radius: 8px; box-shadow: 0 0 0 3px rgba(201,162,39,0.1); background: #fff; color: #1A1A2E; font-family: 'Noto Sans JP', sans-serif; }
+.search-mock button { padding: 10px 20px; background: #0E2148; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-family: 'Noto Sans JP', sans-serif; cursor: default; }
+.search-count { font-size: 12px; color: #AAB4C8; margin-bottom: 12px; }
+.member-card { background: #fff; border: 1px solid #E8EDF5; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 12px; }
+.member-av { width: 38px; height: 38px; border-radius: 50%; background: #EEF2FA; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif JP', serif; font-size: 14px; color: #0E2148; flex-shrink: 0; }
+.member-name { font-size: 14px; font-weight: 500; color: #0E2148; font-family: 'Noto Serif JP', serif; margin-bottom: 5px; }
+.member-meta { display: flex; gap: 5px; flex-wrap: wrap; }
+.member-tag { font-size: 10px; padding: 2px 7px; border-radius: 99px; }
+.member-tag.house { background: #EEF2FA; color: #3A5A9A; }
+.member-tag.party { background: #FFF0C0; color: #7A5800; }
+.member-tag.committee { background: #E1F5EE; color: #1A6A4A; }
+.member-stance { font-size: 12px; color: #7A8AA0; margin-top: 5px; }
+/* カレンダー */
+.cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.cal-title { font-family: 'Noto Serif JP', serif; font-size: 14px; color: #0E2148; font-weight: 500; }
+.cal-nav button { width: 28px; height: 28px; border: 1px solid #E8EDF5; border-radius: 6px; background: #fff; font-size: 12px; color: #AAB4C8; cursor: default; margin-left: 4px; }
+.cal-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.cal-day-label { font-size: 11px; color: #AAB4C8; text-align: center; margin-bottom: 6px; letter-spacing: 0.04em; }
+.cal-events { display: flex; flex-direction: column; gap: 5px; }
+.cal-event { padding: 7px 9px; border-radius: 7px; font-size: 11px; line-height: 1.4; }
+.cal-event.type-committee { background: #EEF2FA; color: #0E2148; border-left: 3px solid #4A7ABB; }
+.cal-event.type-plenary { background: #FFF0C0; color: #7A5800; border-left: 3px solid #C9A227; }
+.cal-event.type-lobby { background: #E1F5EE; color: #1A6A4A; border-left: 3px solid #2AAA76; }
+.cal-event-time { font-size: 10px; opacity: 0.7; }
+.cal-legend { display: flex; gap: 14px; margin-top: 12px; }
+.cal-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #AAB4C8; }
+.cal-legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+/* デモフッター */
+.demo-footer { padding: 1.25rem 1.75rem; border-top: 1px solid #E8EDF5; background: #F9FAFC; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.demo-footer-note { font-size: 12px; color: #7A8AA0; }
+.demo-footer-note strong { color: #0E2148; }
+.demo-cta { padding: 11px 28px; background: #C9A227; color: #0E2148; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; font-family: 'Noto Sans JP', sans-serif; cursor: pointer; letter-spacing: 0.05em; white-space: nowrap; transition: background 0.15s; }
+.demo-cta:hover { background: #D4AE30; }
+
+/* レスポンシブ */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 32px; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .stat-divider { width: 40px; height: 1px; margin: 0 auto; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 90 90" aria-label="GovMeet">
+      <defs>
+        <linearGradient id="navLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F5A800"/>
+          <stop offset="100%" stop-color="#E85D00"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#navLogo)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+    </svg>
+    <span class="nav-product">GovMeet</span>
+  </div>
+  <div class="nav-links">
+    <a href="#features" class="nav-link">機能</a>
+    <a href="#plans" class="nav-link">料金</a>
+    <a href="#how" class="nav-link">使い方</a>
+    <a href="#" class="nav-link" onclick="event.preventDefault();openModal()">お問い合わせ</a>
+  </div>
+  <div class="nav-cta">
+    <button class="btn-ghost" onclick="location.href='login.html'">ログイン</button>
+    <button class="btn-navy" onclick="location.href='signup.html'">無料ではじめる</button>
+  </div>
+</nav>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="eyebrow">▪ 政府渉外プラットフォーム</div>
+  <h1>民間と政府を、<em>つなぐ</em>。</h1>
+  <p class="hero-sub-title">民間企業・業界団体・NPO・学会・政治家・官僚・国民<br>すべてのステークホルダーをつなぐインフラ</p>
+  <p class="hero-p">政府との連携をこれから模索したい、もっと効率化したい。GovMeetは、政策形成に関わるすべてのプロセスに伴走します。</p>
+  <div class="hero-btns">
+    <button class="btn-gold" onclick="openDemo()">無料ではじめる</button>
+    <button class="btn-outline" onclick="openModal()">お問い合わせ</button>
+  </div>
+  <!-- データ統計バー -->
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">712<span>名</span></div>
+      <div class="stat-label">衆参議員データベース</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">12<span>省庁</span></div>
+      <div class="stat-label">省庁・部局情報</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">180<span>団体</span></div>
+      <div class="stat-label">登録業界団体・NPO</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">725<span>名</span></div>
+      <div class="stat-label">省庁幹部・有識者</div>
+    </div>
+  </div>
+</section>
+
+<!-- ステークホルダー -->
+<section class="gray-bg" style="padding:4rem 2rem;">
+  <div class="sec-ey">GovMeetでできること</div>
+  <div class="sec-h2">政策を動かす人を、まず知ることから。</div>
+  <div class="sec-sub">政策は、議員・官僚・有識者・業界団体が複雑に絡み合って形成されます。GovMeetは「あなたの課題に関係するのは誰か」をAIが特定し、アプローチの全プロセスを支援します。</div>
+  <div class="sh-grid">
+    <div class="sh-card">
+      <div class="sh-icon">🏛️</div>
+      <div class="sh-count">712<span>名</span></div>
+      <div class="sh-name">国会議員</div>
+      <div class="sh-desc">衆参両院の全議員を収録。政策スタンス・委員会・所属議連で絞り込み、アプローチすべき議員をすぐ特定できます。</div>
+    </div>
+    <div class="sh-card">
+      <div class="sh-icon">📋</div>
+      <div class="sh-count">12<span>省庁</span></div>
+      <div class="sh-name">省庁・官僚</div>
+      <div class="sh-desc">経産省・厚労省など12省庁の組織と担当局を把握。法案の実務を担う部局を特定し、効率的にアプローチします。</div>
+    </div>
+    <div class="sh-card">
+      <div class="sh-icon">🔬</div>
+      <div class="sh-count">725<span>名</span></div>
+      <div class="sh-name">学会・有識者</div>
+      <div class="sh-desc">政府審議会・検討会に登場する有識者・研究者を収録。政策の根拠を作る専門家へのアプローチを支援します。</div>
+    </div>
+    <div class="sh-card">
+      <div class="sh-icon">🤝</div>
+      <div class="sh-count">180<span>団体</span></div>
+      <div class="sh-name">業界団体・NPO</div>
+      <div class="sh-desc">政策形成に影響力を持つ団体を網羅。連携できる団体・競合するポジションの団体を把握して戦略を立てます。</div>
+    </div>
+  </div>
+  <div class="sh-note">
+    <span class="sh-note-icon">✦</span>
+    「うちの業界に関係する議員は誰？」と話しかけるだけ。AIがステークホルダーを自動で整理します。
+  </div>
+</section>
+
+<!-- ターゲット -->
+<section>
+  <div class="sec-ey">こんな方に</div>
+  <div class="sec-h2">政府との連携を模索したい、効率化したい、すべての人へ</div>
+  <div class="sec-sub">業界問わず、政府渉外に関わるすべての方のためのプラットフォームです。</div>
+  <div class="grid4">
+    <div class="card">
+      <div class="card-icon" style="background:#EEF2FA">🏢</div>
+      <div class="card-name">企業の渉外担当者</div>
+      <div class="card-desc">政府渉外をこれから始めたい、または効率化したい。議員・省庁へのアプローチ方法を知りたい。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#FFF0C0">🤝</div>
+      <div class="card-name">業界団体・非営利団体</div>
+      <div class="card-desc">業界・団体の声を政策に反映させたい。複数の議員や省庁に効率よく働きかけたい。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#E1F5EE">📰</div>
+      <div class="card-name">記者・ジャーナリスト</div>
+      <div class="card-desc">議員の政策スタンスや発言を素早く調査したい。取材アポを効率よく取りたい。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#EEEDFE">📊</div>
+      <div class="card-name">政策コンサルタント・ロビイスト</div>
+      <div class="card-desc">複数クライアントの案件を同時管理したい。政府渉外案件のマネジメントと重複アプローチ管理を効率化したい。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 悩み -->
+<section class="gray-bg">
+  <div class="sec-ey">よくある悩み</div>
+  <div class="sec-h2">こんな壁、ありませんか？</div>
+  <div class="sec-sub">政府渉外に取り組む人が直面する課題を、GovMeetが解決します。</div>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">✕</div>
+      <div>
+        <div class="pain-title">そもそも政府と連携できるかわからない</div>
+        <div class="pain-text">自社や団体が政府と連携できる立場なのか、どんな形で関われるのかイメージが持てない。</div>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">✕</div>
+      <div>
+        <div class="pain-title">どのように連携すればいいかわからない</div>
+        <div class="pain-text">アプローチの手順・タイミング・方法など、政府渉外のやり方自体がわからない。</div>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">✕</div>
+      <div>
+        <div class="pain-title">誰にアプローチすればいいかわからない</div>
+        <div class="pain-text">担当議員や省庁の探し方がわからず、どこから始めればいいか迷ってしまう。</div>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">✕</div>
+      <div>
+        <div class="pain-title">自社の課題や訴えるべき論点がわからない</div>
+        <div class="pain-text">どんな政策課題を訴えるべきか、自社の立場から何を提言できるのかが整理できていない。</div>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">✕</div>
+      <div>
+        <div class="pain-title">ステークホルダーのリサーチに時間がかかる</div>
+        <div class="pain-text">関連する議員・省庁・学会・NPOを調べるだけで膨大な時間を消費してしまう。</div>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">✕</div>
+      <div>
+        <div class="pain-title"><span class="pain-tag">政策コンサル向け</span><br>同じ議員に重複してアプローチしている</div>
+        <div class="pain-text">複数クライアントを抱える中で、誰がどの議員にアプローチ済みか把握できず、関係を損ねるリスクがある。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 使い方 -->
+<section class="navy-bg" id="how">
+  <div class="sec-ey">使い方</div>
+  <div class="sec-h2 white">AIが伴走する3つのステップ</div>
+  <div class="sec-sub muted">政府渉外の経験がなくても、AIが課題の特定から実行まで一緒に進めます。</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">AIが課題を特定する</div>
+        <div class="step-text">「うちの会社が政府とどう連携できるかわからない」から話しかけるだけ。AIが現状・業種・目的をヒアリングして、連携できる領域と関連するステークホルダーを整理します。</div>
+        <span class="step-badge">✦ AIアドバイザー機能</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">戦略を作成する</div>
+        <div class="step-text">課題が明確になったら、国会日程・省庁の動向・議員のスタンスを踏まえたアプローチ戦略をAIが自動生成。「いつ・誰に・どう伝えるか」を具体的な行動計画に落とし込みます。</div>
+        <span class="step-badge">▪ 行動計画・メール生成（プロ）</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-num">3</div></div>
+      <div class="step-body">
+        <div class="step-title">タスクを管理する</div>
+        <div class="step-text">国会日程と連動してタスクが自動生成され、複数の政府渉外案件を一元管理。アプローチ履歴・面談記録・次のアクションを整理して、政府との連携を着実に前進させます。</div>
+        <span class="step-badge">▪ 案件管理・CRM（一部無料）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 機能 -->
+<section id="features">
+  <div class="sec-ey">主な機能</div>
+  <div class="sec-h2">政府渉外に必要なすべてが揃う</div>
+  <div class="sec-sub">ステークホルダーの把握から戦略立案、案件管理まで一気通貫で対応します。</div>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">✦</div>
+      <div class="feat-name">AIアドバイザー</div>
+      <div class="feat-desc">状況を話しかけるだけで課題を整理。政府連携の入口をナビゲートします。</div>
+      <span class="badge badge-partial">月10回（無料）</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🔍</div>
+      <div class="feat-name">議員・ステークホルダー検索</div>
+      <div class="feat-desc">議員・省庁・学会・NPOを横断検索。政策テーマから関連するすべての人を特定します。</div>
+      <span class="badge badge-free">無料</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📅</div>
+      <div class="feat-name">国会カレンダー</div>
+      <div class="feat-desc">国会日程・外交・総理動静・党内日程・ロビー好機を一覧で把握できます。</div>
+      <span class="badge badge-free">無料</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🏛️</div>
+      <div class="feat-name">省庁・局検索</div>
+      <div class="feat-desc">どの省庁・局が関連するかを特定。議員との会話の前提を整えます。</div>
+      <span class="badge badge-pro">プロ</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">✉</div>
+      <div class="feat-name">カスタムメール生成</div>
+      <div class="feat-desc">議員ごとのスタンスに最適化されたアプローチメールをAIが自動生成。GovMeet認証付きで信頼性を高めます。</div>
+      <span class="badge badge-pro">プロ・無制限</span>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📋</div>
+      <div class="feat-name">案件管理・行動計画</div>
+      <div class="feat-desc">国会日程と連動した行動計画を自動生成。複数の渉外案件を一元管理します。</div>
+      <span class="badge badge-partial">一部無料</span>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="gray-bg" id="plans">
+  <div class="sec-ey">料金</div>
+  <div class="sec-h2">まずは無料ではじめられます</div>
+  <div class="sec-sub">政府渉外をこれから始める方も、無料プランで基本機能をお試しいただけます。</div>
+  <div class="plan-grid">
+
+    <div class="plan">
+      <div class="plan-label">無料プラン</div>
+      <div class="plan-price">¥0 <span>/ 月</span></div>
+      <div class="plan-desc">まず試してみたい方に。基本的な情報収集と課題整理ができます。</div>
+      <div class="pf"><span class="ck">✓</span>AIアドバイザー（月10回）</div>
+      <div class="pf"><span class="ck">✓</span>議員・ステークホルダー検索</div>
+      <div class="pf"><span class="ck">✓</span>国会カレンダー</div>
+      <div class="pf"><span class="ck">✓</span>メール生成（月2通）</div>
+      <div class="pf"><span class="ck">✓</span>案件管理（1案件まで）</div>
+      <div class="pf dim"><span class="xk">✗</span>省庁・局検索</div>
+      <div class="pf dim"><span class="xk">✗</span>行動計画の自動生成</div>
+      <div class="pf dim"><span class="xk">✗</span>GovMeet認証メール</div>
+      <button class="plan-btn pb-free" onclick="location.href='signup.html'">無料ではじめる</button>
+    </div>
+
+    <div class="plan featured">
+      <div class="plan-popular">おすすめ</div>
+      <div class="plan-label gold">プロプラン</div>
+      <div class="plan-price">¥29,800 <span>/ 月</span></div>
+      <div class="plan-desc">本格的に政府渉外を進めたい方に。すべての機能が使えます。</div>
+      <div class="plan-highlight">✉ GovMeet認証メール＋議員会館への直接面会依頼に対応</div>
+      <div class="pf"><span class="ck">✓</span>AIアドバイザー（無制限）</div>
+      <div class="pf"><span class="ck">✓</span>省庁・局検索</div>
+      <div class="pf"><span class="ck">✓</span>メール生成（無制限・AI最適化）</div>
+      <div class="pf"><span class="ck">✓</span>GovMeet認証メール送付</div>
+      <div class="pf"><span class="ck">✓</span>議員会館への直接面会依頼</div>
+      <div class="pf"><span class="ck">✓</span>行動計画の自動生成</div>
+      <div class="pf"><span class="ck">✓</span>案件管理（無制限）</div>
+      <div class="pf"><span class="ck">✓</span>CRM・アプローチ管理</div>
+      <button class="plan-btn pb-pro" onclick="location.href='upgrade.html'">プロプランに登録</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-label">エンタープライズ <em class="coming">Coming Soon</em></div>
+      <div class="plan-price" style="color:#C0C8D8; font-size:22px; padding-top:4px;">要相談</div>
+      <div class="plan-desc" style="color:#C0C8D8">大規模団体・官公庁・企業向けのカスタムプランです。</div>
+      <div class="pf dim"><span class="xk">✓</span>プロプランの全機能</div>
+      <div class="pf dim"><span class="xk">✓</span>メンバー無制限</div>
+      <div class="pf dim"><span class="xk">✓</span>専任サポート担当</div>
+      <div class="pf dim"><span class="xk">✓</span>カスタムデータ連携</div>
+      <div class="pf dim"><span class="xk">✓</span>SLA保証・セキュリティ審査対応</div>
+      <div class="pf dim"><span class="xk">✓</span>アプローチ重複チェック機能</div>
+      <button class="plan-btn pb-ent" disabled>詳細をお問い合わせ</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ユーザーの声 -->
+<section>
+  <div class="sec-ey">ユーザーの声</div>
+  <div class="sec-h2">実際のユーザーから、リアルな声を</div>
+  <div class="sec-sub">ローンチ後、実際にご利用いただいた方の声を掲載予定です。</div>
+  <div class="voice-grid">
+    <div class="voice" style="min-height:120px;background:#F9FAFC;border:1px dashed #DDE3EE;"></div>
+    <div class="voice" style="min-height:120px;background:#F9FAFC;border:1px dashed #DDE3EE;"></div>
+    <div class="voice" style="min-height:120px;background:#F9FAFC;border:1px dashed #DDE3EE;"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="gray-bg">
+  <div class="sec-ey">よくある質問</div>
+  <div class="sec-h2">はじめる前に知っておきたいこと</div>
+  <div class="sec-sub" style="margin-bottom:1.5rem"></div>
+  <div class="faq-list">
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">政府渉外の経験がまったくなくても使えますか？<span class="icon">⌄</span></div>
+      <div class="faq-a">はい、むしろ「これから始めたい」という方向けに設計されています。AIアドバイザーが「そもそも自社が政府と連携できるか」という段階から整理してくれます。課題の特定・戦略立案・実行まで伴走します。</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">無料プランでどこまで使えますか？<span class="icon">⌄</span></div>
+      <div class="faq-a">AIアドバイザー（月10回）・議員・ステークホルダー検索・国会カレンダー・メール生成（月2通）・案件管理（1案件）が無料でご利用いただけます。本格的に動かしたい場合はプロプランをご検討ください。</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">GovMeet認証メールとは何ですか？<span class="icon">⌄</span></div>
+      <div class="faq-a">GovMeet経由で送付されたことを示す認証が付いたメールです。GovMeetが議員・議員事務所との関係を積み上げることで、将来的には「GovMeet経由なら対応する」という議員が増えることを目指しています。現時点では信頼性向上の取り組みとして提供しています。</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">議員会館への直接面会依頼とはどういう機能ですか？<span class="icon">⌄</span></div>
+      <div class="faq-a">GovMeetのプロプラン会員向けに、議員会館の事務所へ直接面会依頼を送付するサポートを行います。メール生成・送付のサポートに加え、GovMeet経由での依頼として取り次ぎます。詳細はお問い合わせください。</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">エンタープライズプランはどのような内容ですか？<span class="icon">⌄</span></div>
+      <div class="faq-a">大規模団体・企業・官公庁向けに、メンバー無制限・専任サポート・カスタムデータ連携・SLA保証・アプローチ重複チェック機能などを提供します。現在準備中です。詳細はお問い合わせフォームよりご連絡ください。</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">解約はいつでもできますか？<span class="icon">⌄</span></div>
+      <div class="faq-a">はい、いつでも解約できます。解約後は当月末まで引き続きご利用いただけます。長期契約の縛りはありません。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>まず、AIに話しかけてみてください。</h2>
+  <p>「そもそも政府と連携できるかわからない」でも大丈夫。GovMeetのAIアドバイザーが、政府との連携実現まで一緒に伴走します。</p>
+  <div class="cta-btns">
+    <button class="btn-gold" onclick="location.href='signup.html'">無料ではじめる</button>
+    <button class="btn-outline" onclick="openModal()">プロプランを相談する</button>
+  </div>
+</section>
+
+<!-- ━━━ 最下部 お問い合わせCTA ━━━ -->
+<section style="background:#fff; padding:4rem 2rem; text-align:center; border-top:2px solid #E8EDF5;">
+  <div class="sec-ey">Contact</div>
+  <div class="sec-h2" style="margin-bottom:14px;">まずはお気軽にご相談ください</div>
+  <p style="font-size:15px;color:#4A5A78;line-height:1.9;margin-bottom:2rem;font-weight:400;max-width:460px;margin-left:auto;margin-right:auto;">プランのご相談・デモのご依頼・エンタープライズのお見積もりなど、<br>どんな内容でもお答えします。</p>
+  <button onclick="openModal()" style="font-size:15px;font-weight:600;padding:15px 40px;border-radius:8px;background:#C9A227;color:#0E2148;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.06em;transition:background 0.15s,transform 0.1s;" onmouseover="this.style.background='#D4AE30';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#C9A227';this.style.transform='translateY(0)'">お問い合わせをする</button>
+  <p style="margin-top:16px;font-size:13px;color:#AAB4C8;font-weight:400;">メールでも受け付けています → <a href="mailto:info@govmeet.jp" style="color:#7A8AA0;text-decoration:none;border-bottom:1px solid #DDE3EE;">info@govmeet.jp</a></p>
+</section>
+
+<!-- ━━━ デモモーダル ━━━ -->
+<div class="demo-overlay" id="demoModal" onclick="if(event.target===this)closeDemo()">
+  <div class="demo-modal">
+    <div class="demo-header">
+      <div>
+        <div class="demo-header-label">Product Demo</div>
+        <div class="demo-header-title">GovMeetでできることを、見てみましょう</div>
+      </div>
+      <button class="demo-close" onclick="closeDemo()">✕</button>
+    </div>
+    <div class="demo-tabs">
+      <div class="demo-tab active" onclick="switchDemoTab(0,this)">✦ AIアドバイザー</div>
+      <div class="demo-tab" onclick="switchDemoTab(1,this)">🔍 議員検索</div>
+      <div class="demo-tab" onclick="switchDemoTab(2,this)">📅 国会カレンダー</div>
+    </div>
+    <div class="demo-content">
+
+      <!-- Tab 0: AIアドバイザー -->
+      <div class="demo-panel active" id="demoPanel0">
+        <div class="chat-wrap">
+          <div class="chat-msg user">
+            <div class="chat-av usr">私</div>
+            <div class="chat-bubble usr">再生可能エネルギーの規制緩和について政府に働きかけたいのですが、どこから始めればいいですか？</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-av ai">G</div>
+            <div class="chat-bubble ai">
+              ご状況を整理しました。再生可能エネルギー分野の規制緩和に関わる主要ステークホルダーは以下です。
+              <div class="chat-result-box">
+                <div class="chat-result-item"><span class="dot">■</span>所管省庁：経済産業省 資源エネルギー庁（GX推進室）</div>
+                <div class="chat-result-item"><span class="dot">■</span>関連議員：エネルギー・環境系委員会所属（37名検出）</div>
+                <div class="chat-result-item"><span class="dot">■</span>有識者：再エネ議連アドバイザー（12名）</div>
+                <div class="chat-result-item"><span class="dot">■</span>業界団体：太陽光・風力発電関連（8団体）</div>
+              </div>
+              <span class="chat-badge">▪ まず議員検索で「エネルギー」で絞り込みましょうか？</span>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-mock">
+          <input type="text" placeholder="続けて話しかけられます..." disabled>
+          <button>送信</button>
+        </div>
+      </div>
+
+      <!-- Tab 1: 議員検索 -->
+      <div class="demo-panel" id="demoPanel1">
+        <div class="search-mock">
+          <input type="text" value="エネルギー" readonly>
+          <button>検索</button>
+        </div>
+        <div class="search-count">37件の議員が見つかりました</div>
+        <div class="member-card">
+          <div class="member-av">山</div>
+          <div>
+            <div class="member-name">山田 正一 議員</div>
+            <div class="member-meta">
+              <span class="member-tag house">衆議院</span>
+              <span class="member-tag party">自由民主党</span>
+              <span class="member-tag committee">経済産業委員会</span>
+            </div>
+            <div class="member-stance">再エネ議連 幹事長 / GX推進に積極的</div>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-av">田</div>
+          <div>
+            <div class="member-name">田中 恵子 議員</div>
+            <div class="member-meta">
+              <span class="member-tag house">参議院</span>
+              <span class="member-tag party">立憲民主党</span>
+              <span class="member-tag committee">環境委員会</span>
+            </div>
+            <div class="member-stance">再生可能エネルギー推進派 / 環境NGOとの連携多数</div>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-av">佐</div>
+          <div>
+            <div class="member-name">佐藤 健二 議員</div>
+            <div class="member-meta">
+              <span class="member-tag house">衆議院</span>
+              <span class="member-tag party">公明党</span>
+              <span class="member-tag committee">資源エネルギー小委員会</span>
+            </div>
+            <div class="member-stance">地域エネルギー自立を重点政策に掲げる</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: 国会カレンダー -->
+      <div class="demo-panel" id="demoPanel2">
+        <div class="cal-header">
+          <div class="cal-title">2026年5月 第4週</div>
+          <div class="cal-nav"><button>‹</button><button>›</button></div>
+        </div>
+        <div class="cal-days">
+          <div>
+            <div class="cal-day-label">月</div>
+            <div class="cal-events">
+              <div class="cal-event type-committee"><div class="cal-event-time">10:00</div>経済産業委員会</div>
+            </div>
+          </div>
+          <div>
+            <div class="cal-day-label">火</div>
+            <div class="cal-events">
+              <div class="cal-event type-plenary"><div class="cal-event-time">13:00</div>参院本会議</div>
+            </div>
+          </div>
+          <div>
+            <div class="cal-day-label">水</div>
+            <div class="cal-events"></div>
+          </div>
+          <div>
+            <div class="cal-day-label">木</div>
+            <div class="cal-events">
+              <div class="cal-event type-committee"><div class="cal-event-time">9:00</div>環境委員会</div>
+              <div class="cal-event type-committee"><div class="cal-event-time">14:00</div>予算委員会</div>
+            </div>
+          </div>
+          <div>
+            <div class="cal-day-label">金</div>
+            <div class="cal-events">
+              <div class="cal-event type-lobby"><div class="cal-event-time">14:30</div>再エネ議連 総会 ★</div>
+            </div>
+          </div>
+        </div>
+        <div class="cal-legend">
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#4A7ABB"></div>委員会</div>
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#C9A227"></div>本会議</div>
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#2AAA76"></div>ロビー好機</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="demo-footer">
+      <div class="demo-footer-note">クレジットカード不要。<strong>無料プランですぐ使えます。</strong></div>
+      <button class="demo-cta" onclick="location.href='signup.html'">無料で試してみる →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ━━━ お問い合わせモーダル ━━━ -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">お問い合わせ</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- サンクス -->
+      <div class="m-thanks" id="mThanks">
+        <div class="m-thanks-icon">✦</div>
+        <h3>送信しました</h3>
+        <p>ご連絡ありがとうございます。<br>平日 10:00〜18:00 にご返信いたします。</p>
+      </div>
+
+      <!-- フォーム -->
+      <form id="modalForm">
+        <div class="m-form-row">
+          <div class="m-form-group">
+            <label class="m-label" for="m_name">お名前<span class="req">*</span></label>
+            <input class="m-input" type="text" id="m_name" placeholder="山田 太郎" required>
+          </div>
+          <div class="m-form-group">
+            <label class="m-label" for="m_org">会社名・団体名<span class="opt">任意</span></label>
+            <input class="m-input" type="text" id="m_org" placeholder="株式会社〇〇">
+          </div>
+        </div>
+        <div class="m-form-row">
+          <div class="m-form-group">
+            <label class="m-label" for="m_role">役職<span class="opt">任意</span></label>
+            <input class="m-input" type="text" id="m_role" placeholder="渉外部長">
+          </div>
+          <div class="m-form-group">
+            <label class="m-label" for="m_tel">電話番号<span class="opt">任意</span></label>
+            <input class="m-input" type="tel" id="m_tel" placeholder="03-0000-0000">
+          </div>
+        </div>
+        <div class="m-form-group">
+          <label class="m-label" for="m_email">メールアドレス<span class="req">*</span></label>
+          <input class="m-input" type="email" id="m_email" placeholder="you@example.com" required>
+        </div>
+        <div class="m-form-group">
+          <label class="m-label" for="m_type">お問い合わせ種別<span class="req">*</span></label>
+          <select class="m-select" id="m_type" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="プランの詳細を聞きたい">プランの詳細を聞きたい</option>
+            <option value="デモを依頼したい">デモを依頼したい</option>
+            <option value="プロプランに登録したい">プロプランに登録したい</option>
+            <option value="エンタープライズについて相談したい">エンタープライズについて相談したい</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <div class="m-form-group">
+          <label class="m-label" for="m_message">お問い合わせ内容<span class="req">*</span></label>
+          <textarea class="m-textarea" id="m_message" placeholder="ご質問やご要望をご記入ください。" required></textarea>
+        </div>
+        <button type="submit" class="m-submit" id="mSubmitBtn">送信する</button>
+        <div class="m-mail-note">メールでも受け付けています → <a href="mailto:info@govmeet.jp">info@govmeet.jp</a></div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">© 2026 GovMeet</span>
+  <div class="footer-links">
+    <a href="riyokiyaku.html" class="footer-link">利用規約</a>
+    <a href="tokushoho.html" class="footer-link">特定商取引法に基づく表記</a>
+    <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+    <a href="contact.html" class="footer-link">お問い合わせ</a>
+  </div>
+</footer>
+
+<script>
+const JOTFORM_ID  = '261455525848062';
+const JOTFORM_URL = `https://submit.jotform.com/submit/${JOTFORM_ID}/`;
+
+/* デモモーダル */
+function openDemo() {
+  document.getElementById('demoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDemo() {
+  document.getElementById('demoModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function switchDemoTab(idx, el) {
+  document.querySelectorAll('.demo-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+  document.querySelectorAll('.demo-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
+}
+
+/* お問い合わせモーダル */
+function openModal() {
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDemo(); closeModal(); } });
+
+document.getElementById('modalForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('mSubmitBtn');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+
+  const fd = new FormData();
+  fd.append('formID', JOTFORM_ID);
+  fd.append('q2_fullName[first]', document.getElementById('m_name').value);
+  fd.append('q3_companyName',     document.getElementById('m_org').value || '');
+  fd.append('q4_jobTitle',        document.getElementById('m_role').value || '');
+  fd.append('q5_phoneNumber[full]', document.getElementById('m_tel').value || '');
+  fd.append('q6_email',           document.getElementById('m_email').value);
+  fd.append('q7_dropDown',        document.getElementById('m_type').value);
+  fd.append('q8_textarea',        document.getElementById('m_message').value);
+
+  try {
+    await fetch(JOTFORM_URL, { method: 'POST', mode: 'no-cors', body: fd });
+    document.getElementById('modalForm').style.display = 'none';
+    document.getElementById('mThanks').style.display = 'block';
+  } catch {
+    btn.textContent = '送信できませんでした。メールにてご連絡ください。';
+    btn.style.background = '#6A7FA8';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

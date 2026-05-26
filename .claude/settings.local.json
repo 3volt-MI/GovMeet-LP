@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($json = Get-Content \"C:\\\\Users\\\\USER-01\\\\OneDrive\\\\Desktop\\\\新しいフォルダー\\\\GovMeet DB\\\\data\\\\output\\\\members_summary.json\" -Raw | ConvertFrom-Json; $json | Get-Member | Select-Object Name; Write-Output \"Total count attempt\"; $json.Count; Write-Output \"---\"; $json | Select-Object -First 3)",
+      "PowerShell(Import-Csv *)",
+      "WebFetch(domain:form.jotform.com)",
+      "Bash(Move-Item *)",
+      "PowerShell(Move-Item *)"
+    ]
+  }
+}

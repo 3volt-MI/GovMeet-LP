@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 — GovMeet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', -apple-system, 'Helvetica Neue', Arial, sans-serif; color: #1A1A2E; font-weight: 400; -webkit-font-smoothing: antialiased; background: #F4F6FA; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; border-bottom: 1px solid #E8EDF5; background: #fff; position: sticky; top: 0; z-index: 10; }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-product { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 500; color: #0E2148; letter-spacing: 0.02em; }
+.nav-back { font-size: 13px; color: #7A8AA0; text-decoration: none; letter-spacing: 0.03em; transition: color 0.15s; }
+.nav-back:hover { color: #0E2148; }
+.page-header { background: linear-gradient(160deg, #071433 0%, #0E2148 100%); padding: 3.5rem 2rem 3rem; text-align: center; }
+.page-eyebrow { font-size: 11px; color: #C9A227; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; font-weight: 300; }
+.page-title { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 500; color: #fff; letter-spacing: 0.02em; }
+.content-wrap { max-width: 740px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.lead { background: #fff; border: 1px solid #E8EDF5; border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 16px; font-size: 13px; color: #4A5A78; line-height: 1.9; font-weight: 300; letter-spacing: 0.03em; }
+.article { background: #fff; border: 1px solid #E8EDF5; border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+.article-title { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 500; color: #0E2148; padding: 14px 20px; background: #F9FAFC; border-bottom: 1px solid #E8EDF5; letter-spacing: 0.04em; }
+.article-body { padding: 16px 20px; font-size: 13px; color: #4A5A78; line-height: 1.9; font-weight: 300; letter-spacing: 0.03em; }
+.article-body p { margin-bottom: 12px; }
+.article-body p:last-child { margin-bottom: 0; }
+.article-body ul { padding-left: 1.2em; margin: 8px 0 12px; }
+.article-body li { margin-bottom: 5px; }
+.article-body .sub-heading { font-family: 'Noto Serif JP', serif; font-size: 12px; font-weight: 500; color: #0E2148; margin: 14px 0 6px; }
+.plan-table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; }
+.plan-table th, .plan-table td { padding: 10px 14px; font-size: 12px; border: 1px solid #E8EDF5; text-align: left; vertical-align: top; line-height: 1.7; }
+.plan-table thead th { background: #F9FAFC; color: #7A8AA0; font-weight: 400; letter-spacing: 0.04em; }
+.plan-table tbody td { color: #4A5A78; font-weight: 300; }
+.plan-table tbody td:first-child { font-weight: 500; color: #0E2148; white-space: nowrap; font-family: 'Noto Serif JP', serif; }
+.note-box { background: rgba(201,162,39,0.05); border: 1px solid rgba(201,162,39,0.2); border-radius: 7px; padding: 12px 14px; font-size: 12px; color: #6A5A20; line-height: 1.8; margin-top: 12px; letter-spacing: 0.02em; font-weight: 300; }
+.contact-box { background: #F9FAFC; border-radius: 8px; padding: 14px 16px; font-size: 12px; color: #4A5A78; line-height: 1.9; margin-top: 12px; font-weight: 300; }
+.contact-box a { color: #0E2148; text-decoration: none; border-bottom: 1px solid #DDE3EE; }
+.updated { text-align: center; font-size: 11px; color: #AAB4C8; margin-top: 2.5rem; letter-spacing: 0.05em; font-weight: 300; }
+footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-size: 12px; color: #3A4E6A; letter-spacing: 0.05em; font-weight: 300; }
+.footer-links { display: flex; gap: 20px; }
+.footer-link { font-size: 12px; color: #3A4E6A; text-decoration: none; letter-spacing: 0.03em; transition: color 0.15s; }
+.footer-link:hover { color: #7A8AA0; }
+@media (max-width: 600px) { .nav { padding: 0 1.25rem; } .content-wrap { padding: 2rem 1rem 4rem; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 90 90" aria-label="GovMeet">
+      <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A800"/><stop offset="100%" stop-color="#E85D00"/></linearGradient></defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#lg)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+    </svg>
+    <span class="nav-product">GovMeet</span>
+  </a>
+  <a href="index.html" class="nav-back">← トップに戻る</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Legal</div>
+  <div class="page-title">利用規約</div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="lead">
+    本利用規約（以下「本規約」といいます）は、3volt（以下「当社」といいます）が提供するサービス「GovMeet」（以下「本サービス」といいます）の利用条件を定めるものです。本サービスの利用をもって本規約に同意したものとみなします。
+  </div>
+
+  <div class="article">
+    <div class="article-title">第1条　目的・対象</div>
+    <div class="article-body">
+      <p>本サービスは、企業の政府渉外担当者、業界団体・非営利団体、記者・ジャーナリスト、政策コンサルタント・ロビイスト等（以下「ユーザー」といいます）が、AIアドバイザーを通じた課題整理・議員情報の調査・省庁情報の把握・面談申請支援等を行うためのプラットフォームです。</p>
+      <p>ユーザーは本規約に同意のうえ本サービスを利用するものとします。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第2条　定義</div>
+    <div class="article-body">
+      <ul>
+        <li>「本サービス」：当社が提供するGovMeetのウェブアプリケーション、APIおよび関連機能の総称</li>
+        <li>「ユーザー」：本規約に同意し、本サービスを利用する個人または法人</li>
+        <li>「アカウント」：ユーザーが本サービスを利用するために登録する利用権</li>
+        <li>「AIアドバイザー」：本サービス内で提供される人工知能による政府渉外支援機能</li>
+        <li>「案件」：ユーザーが本サービス上で管理する政策・渉外活動に関するプロジェクト</li>
+        <li>「GovMeet認証メール」：当社が運営するGovMeet経由で送付されたことを示す認証付きメール送付サポート機能</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第3条　アカウント登録</div>
+    <div class="article-body">
+      <p>本サービスの利用には、当社所定の方法によるアカウント登録が必要です。</p>
+      <ul>
+        <li>登録情報は真実かつ正確な情報を提供してください</li>
+        <li>アカウントは1人（または1法人）につき1つとします</li>
+        <li>未成年者は保護者の同意を得たうえで登録してください</li>
+        <li>登録情報に変更が生じた場合は、速やかに更新してください</li>
+      </ul>
+      <p>当社は、登録申請者が過去に本規約違反等により利用停止となった場合、反社会的勢力と関係する場合、その他当社が不適切と判断した場合、登録を拒否することがあります。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第4条　プランと料金</div>
+    <div class="article-body">
+      <p>本サービスは以下のプランを提供しています。</p>
+      <table class="plan-table">
+        <thead>
+          <tr><th>プラン</th><th>月額（税込）</th><th>主な機能</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>無料プラン</td>
+            <td>¥0</td>
+            <td>AIアドバイザー月10回・議員検索・国会カレンダー・メール生成月2通・案件管理1件</td>
+          </tr>
+          <tr>
+            <td>プロプラン</td>
+            <td>¥29,800</td>
+            <td>AIアドバイザー無制限・省庁局検索・GovMeet認証メール・議員会館面会依頼・案件管理無制限・CRM</td>
+          </tr>
+          <tr>
+            <td>エンタープライズ</td>
+            <td>要相談</td>
+            <td>プロプランの全機能＋メンバー無制限・専任サポート・カスタムデータ連携・SLA保証（準備中）</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>料金は月払いとします。支払いは当社指定の決済手段（クレジットカード）により行うものとします。当社は料金を変更する場合、1ヶ月前までにユーザーへ通知します。通知後も継続利用した場合、変更後の料金に同意したものとみなします。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第5条　禁止事項</div>
+    <div class="article-body">
+      <p>ユーザーは本サービスの利用にあたり、以下の行為を行ってはなりません。</p>
+      <ul>
+        <li>虚偽の情報を登録・入力する行為</li>
+        <li>第三者になりすます行為</li>
+        <li>本サービスを通じた贈収賄、利益供与その他の違法行為</li>
+        <li>本サービスのシステムに不正アクセスまたは過度な負荷を与える行為</li>
+        <li>当社または第三者の知的財産権、プライバシー権、名誉を侵害する行為</li>
+        <li>政治資金規正法・公職選挙法その他関連法規に違反する行為</li>
+        <li>本サービスを通じて取得した議員情報・省庁情報を目的外に利用する行為</li>
+        <li>反社会的勢力への利益供与に関連する行為</li>
+        <li>その他当社が不適切と判断する行為</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第6条　知的財産権</div>
+    <div class="article-body">
+      <p>本サービスに含まれるコンテンツ（AIアドバイザーの回答、議員データベース、省庁情報、UIデザイン等）に関する著作権その他一切の知的財産権は、当社または正当な権利者に帰属します。</p>
+      <p>ユーザーは、本サービスを通じて取得した情報を、個人の業務目的の範囲内でのみ利用できます。当社の事前承諾なく第三者への転売・再配布・商業利用を行うことはできません。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第7条　免責事項</div>
+    <div class="article-body">
+      <p>当社は以下の事項について責任を負いません。</p>
+      <ul>
+        <li>AIアドバイザーの回答の正確性・完全性・最新性（ご自身の判断と責任においてご利用ください）</li>
+        <li>議員との面談の実現・成立（GovMeetは面談申請の支援を行いますが、実現を保証するものではありません）</li>
+        <li>本サービスの中断・停止・データ消失による損害</li>
+        <li>ユーザーが本サービスを通じて行った渉外活動の結果</li>
+        <li>天災、サイバー攻撃等の不可抗力による障害</li>
+      </ul>
+      <p>当社の責任が認められる場合においても、賠償額は当該ユーザーが直近3ヶ月に支払った利用料金を上限とします。</p>
+      <div class="note-box">議員データベース・省庁情報は定期的に更新しておりますが、最新情報の正確性を完全に保証するものではありません。公式情報は各議員・省庁の公式サイトにてご確認ください。</div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第8条　サービスの変更・停止・終了</div>
+    <div class="article-body">
+      <p>当社は以下の場合、事前通知なく本サービスの全部または一部を変更・停止することができます。</p>
+      <ul>
+        <li>システムメンテナンスまたは障害対応を行う場合</li>
+        <li>セキュリティ上の問題が発生した場合</li>
+        <li>法令または規制上の要請がある場合</li>
+      </ul>
+      <p>本サービスを終了する場合は、原則として60日前までにユーザーへ通知します。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第9条　退会・利用停止</div>
+    <div class="article-body">
+      <p>ユーザーはいつでも退会することができます。退会後は当月末まで本サービスをご利用いただけます。</p>
+      <p>当社は、ユーザーが本規約に違反した場合、支払いの遅延・不払いが発生した場合、登録情報に虚偽が発覚した場合、その他当社が不適切と判断した場合、事前通知なく利用を停止または強制退会させることができます。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第10条　個人情報の取り扱い</div>
+    <div class="article-body">
+      <p>当社は、本サービスの提供において取得する個人情報を、別途定める<a href="privacy.html" style="color:#0E2148;border-bottom:1px solid #DDE3EE;text-decoration:none;">プライバシーポリシー</a>に従い適切に管理します。ユーザーは、本サービスの利用にあたりプライバシーポリシーに同意するものとします。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第11条　規約の変更</div>
+    <div class="article-body">
+      <p>当社は必要に応じて本規約を変更できます。重要な変更については、本サービス上またはメールにて30日前までに通知します。変更後も本サービスを継続利用した場合、変更後の規約に同意したものとみなします。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第12条　準拠法・管轄裁判所</div>
+    <div class="article-body">
+      <p>本規約は日本法に準拠し、これに従い解釈されます。本サービスに関して紛争が生じた場合、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">お問い合わせ</div>
+    <div class="article-body">
+      <p>本規約に関するご不明点は、下記までお問い合わせください。</p>
+      <div class="contact-box">
+        運営：3volt　／　サービス名：GovMeet<br>
+        メールアドレス：<a href="mailto:info@govmeet.jp">info@govmeet.jp</a><br>
+        受付時間：平日 10:00〜18:00（祝日・年末年始を除く）
+      </div>
+    </div>
+  </div>
+
+  <div class="updated">制定：2026年6月1日　／　最終更新：2026年5月27日</div>
+
+</div>
+
+<footer>
+  <span class="footer-brand">© 2026 GovMeet</span>
+  <div class="footer-links">
+    <a href="riyokiyaku.html" class="footer-link">利用規約</a>
+    <a href="tokushoho.html" class="footer-link">特定商取引法に基づく表記</a>
+    <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+    <a href="contact.html" class="footer-link">お問い合わせ</a>
+  </div>
+</footer>
+
+</body>
+</html>

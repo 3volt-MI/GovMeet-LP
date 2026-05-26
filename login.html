@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ログイン — GovMeet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #F4F6FA; min-height: 100vh; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
+
+.page-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem 1.25rem; }
+
+.card { background: #fff; border: 1px solid #E8EDF5; border-radius: 16px; padding: 2.5rem 2rem; width: 100%; max-width: 420px; }
+
+.card-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+.card-logo-text { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 500; color: #0E2148; letter-spacing: 0.02em; }
+
+.card-title { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 500; color: #0E2148; text-align: center; margin-bottom: 6px; letter-spacing: 0.01em; }
+.card-sub { font-size: 13px; color: #7A8AA0; text-align: center; margin-bottom: 2rem; font-weight: 300; letter-spacing: 0.03em; }
+
+.form-group { margin-bottom: 16px; }
+.form-label { display: block; font-size: 12px; font-weight: 500; color: #4A5A78; margin-bottom: 6px; letter-spacing: 0.04em; }
+.form-input { width: 100%; padding: 11px 14px; font-size: 13px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; color: #1A1A2E; border: 1px solid #DDE3EE; border-radius: 8px; background: #fff; letter-spacing: 0.02em; transition: border-color 0.15s, box-shadow 0.15s; outline: none; }
+.form-input:focus { border-color: #C9A227; box-shadow: 0 0 0 3px rgba(201,162,39,0.1); }
+.form-input::placeholder { color: #C0C8D8; }
+
+.pw-wrap { position: relative; }
+.pw-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #AAB4C8; font-size: 12px; padding: 2px 4px; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.02em; }
+.pw-toggle:hover { color: #7A8AA0; }
+
+.forgot { display: block; text-align: right; font-size: 11px; color: #C9A227; text-decoration: none; margin-top: 6px; letter-spacing: 0.03em; }
+.forgot:hover { color: #D4AE30; }
+
+.submit-btn { width: 100%; padding: 13px; background: #0E2148; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.06em; cursor: pointer; transition: background 0.15s; margin-top: 8px; }
+.submit-btn:hover { background: #162E60; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+.divider-line { flex: 1; height: 1px; background: #E8EDF5; }
+.divider-text { font-size: 11px; color: #AAB4C8; white-space: nowrap; letter-spacing: 0.04em; }
+
+.signup-link { text-align: center; font-size: 13px; color: #7A8AA0; font-weight: 300; }
+.signup-link a { color: #0E2148; text-decoration: none; font-weight: 500; border-bottom: 1px solid #DDE3EE; }
+.signup-link a:hover { color: #C9A227; border-color: #C9A227; }
+
+footer { padding: 1.5rem 2rem; background: #060A12; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-size: 12px; color: #3A4E6A; font-weight: 300; }
+.footer-links { display: flex; gap: 18px; }
+.footer-link { font-size: 12px; color: #3A4E6A; text-decoration: none; transition: color 0.15s; }
+.footer-link:hover { color: #7A8AA0; }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="card">
+    <div class="card-logo">
+      <svg width="32" height="32" viewBox="0 0 90 90">
+        <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A800"/><stop offset="100%" stop-color="#E85D00"/></linearGradient></defs>
+        <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#lg)"/>
+        <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
+        <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
+        <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+      </svg>
+      <span class="card-logo-text">GovMeet</span>
+    </div>
+
+    <div class="card-title">ログイン</div>
+    <div class="card-sub">アカウントにサインインしてください</div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label" for="email">メールアドレス</label>
+        <input class="form-input" type="email" id="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">パスワード</label>
+        <div class="pw-wrap">
+          <input class="form-input" type="password" id="password" placeholder="••••••••" required style="padding-right:60px;">
+          <button type="button" class="pw-toggle" onclick="togglePw('password', this)">表示</button>
+        </div>
+        <a href="#" class="forgot">パスワードをお忘れの方</a>
+      </div>
+      <button type="submit" class="submit-btn">ログインする</button>
+    </form>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-text">アカウントをお持ちでない方</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="signup-link">
+      <a href="signup.html">無料アカウントを作成する</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">© 2026 GovMeet</span>
+  <div class="footer-links">
+    <a href="riyokiyaku.html" class="footer-link">利用規約</a>
+    <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+  </div>
+</footer>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js';
+  import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js';
+
+  const firebaseConfig = {
+    apiKey:            "YOUR_API_KEY",
+    authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId:         "YOUR_PROJECT_ID",
+    storageBucket:     "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId:             "YOUR_APP_ID"
+  };
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const errorMessages = {
+    'auth/user-not-found':      'このメールアドレスは登録されていません。',
+    'auth/wrong-password':      'パスワードが正しくありません。',
+    'auth/invalid-email':       'メールアドレスの形式が正しくありません。',
+    'auth/invalid-credential':  'メールアドレスまたはパスワードが正しくありません。',
+    'auth/too-many-requests':   'ログイン試行が多すぎます。しばらく経ってから再試行してください。',
+    'auth/configuration-not-found': 'Firebase未設定です。firebaseConfigを確認してください。',
+  };
+
+  function showError(msg) {
+    let el = document.getElementById('loginError');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'loginError';
+      el.style.cssText = 'background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:10px 14px;font-size:13px;color:#B91C1C;margin-bottom:14px;line-height:1.6;';
+      document.querySelector('form').insertBefore(el, document.querySelector('form').firstChild);
+    }
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function hideError() {
+    const el = document.getElementById('loginError');
+    if (el) el.style.display = 'none';
+  }
+
+  document.querySelector('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    hideError();
+
+    const email    = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn      = document.querySelector('.submit-btn');
+
+    btn.textContent = 'ログイン中...';
+    btn.disabled    = true;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = 'index.html';
+    } catch (err) {
+      showError(errorMessages[err.code] || `エラーが発生しました（${err.code}）`);
+      btn.textContent = 'ログインする';
+      btn.disabled    = false;
+    }
+  });
+
+  document.querySelector('.forgot').addEventListener('click', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    if (!email) {
+      showError('メールアドレスを入力してからパスワードリセットを行ってください。');
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      hideError();
+      alert('パスワードリセットメールを送信しました。メールをご確認ください。');
+    } catch (err) {
+      showError(errorMessages[err.code] || `エラーが発生しました（${err.code}）`);
+    }
+  });
+</script>
+
+<script>
+function togglePw(id, btn) {
+  const input = document.getElementById(id);
+  if (input.type === 'password') { input.type = 'text'; btn.textContent = '隠す'; }
+  else { input.type = 'password'; btn.textContent = '表示'; }
+}
+</script>
+</body>
+</html>

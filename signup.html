@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料アカウント登録 — GovMeet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #F4F6FA; min-height: 100vh; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
+.page-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem 1.25rem; }
+.card { background: #fff; border: 1px solid #E8EDF5; border-radius: 16px; padding: 2.5rem 2rem; width: 100%; max-width: 460px; box-shadow: 0 4px 24px rgba(14,33,72,0.07); }
+.card-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 2rem; text-decoration: none; }
+.card-logo-text { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 500; color: #0E2148; }
+.plan-badge { display: flex; align-items: flex-start; gap: 10px; background: #EAF3DE; border: 1px solid #C6E0A8; border-radius: 10px; padding: 12px 14px; margin-bottom: 1.75rem; }
+.plan-badge-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.plan-badge-text { font-size: 13px; color: #27500A; line-height: 1.7; font-weight: 400; }
+.plan-badge-text strong { font-weight: 600; }
+.card-title { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 500; color: #0E2148; text-align: center; margin-bottom: 6px; }
+.card-sub { font-size: 14px; color: #5A6A88; text-align: center; margin-bottom: 1.75rem; font-weight: 400; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group { margin-bottom: 14px; }
+.form-label { display: block; font-size: 12px; font-weight: 600; color: #3A4A68; margin-bottom: 6px; letter-spacing: 0.04em; }
+.form-label .opt { color: #AAB4C8; margin-left: 4px; font-weight: 400; }
+.form-input { width: 100%; padding: 11px 14px; font-size: 14px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; color: #1A1A2E; border: 1px solid #DDE3EE; border-radius: 8px; background: #fff; transition: border-color 0.15s, box-shadow 0.15s; outline: none; }
+.form-input:focus { border-color: #C9A227; box-shadow: 0 0 0 3px rgba(201,162,39,0.1); }
+.form-input::placeholder { color: #C0C8D8; }
+.pw-wrap { position: relative; }
+.pw-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #AAB4C8; font-size: 12px; padding: 2px 4px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; }
+.pw-toggle:hover { color: #5A6A88; }
+.terms { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0; }
+.terms input[type="checkbox"] { width: 17px; height: 17px; margin-top: 2px; accent-color: #C9A227; flex-shrink: 0; cursor: pointer; }
+.terms-text { font-size: 13px; color: #4A5A78; line-height: 1.75; font-weight: 400; }
+.terms-text a { color: #0E2148; text-decoration: none; border-bottom: 1px solid #DDE3EE; }
+.submit-btn { width: 100%; padding: 13px; background: #C9A227; color: #0E2148; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.04em; cursor: pointer; transition: background 0.15s; }
+.submit-btn:hover { background: #D4AE30; }
+.submit-btn:disabled { background: #DDD; color: #999; cursor: not-allowed; }
+.error-msg { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #B91C1C; font-weight: 400; margin-bottom: 14px; display: none; line-height: 1.6; }
+.error-msg.show { display: block; }
+.login-link { text-align: center; font-size: 14px; color: #5A6A88; font-weight: 400; margin-top: 20px; }
+.login-link a { color: #0E2148; text-decoration: none; font-weight: 600; border-bottom: 1px solid #DDE3EE; }
+footer { padding: 1.5rem 2rem; background: #060A12; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-size: 13px; color: #3A4E6A; font-weight: 400; }
+.footer-links { display: flex; gap: 18px; }
+.footer-link { font-size: 13px; color: #3A4E6A; text-decoration: none; }
+@media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } .card { padding: 2rem 1.25rem; } }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="card">
+    <a href="index.html" class="card-logo">
+      <svg width="32" height="32" viewBox="0 0 90 90">
+        <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A800"/><stop offset="100%" stop-color="#E85D00"/></linearGradient></defs>
+        <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#lg)"/>
+        <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
+        <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
+        <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+      </svg>
+      <span class="card-logo-text">GovMeet</span>
+    </a>
+
+    <div class="plan-badge">
+      <div class="plan-badge-icon">✓</div>
+      <div class="plan-badge-text"><strong>無料プランでスタート</strong> — クレジットカード不要。AIアドバイザー・議員検索・国会カレンダーをすぐに使えます。</div>
+    </div>
+
+    <div class="card-title">アカウント登録</div>
+    <div class="card-sub">無料ではじめられます</div>
+
+    <div class="error-msg" id="errorMsg"></div>
+
+    <form id="signupForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="lastname">姓</label>
+          <input class="form-input" type="text" id="lastname" placeholder="山田" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="firstname">名</label>
+          <input class="form-input" type="text" id="firstname" placeholder="太郎" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="org">会社名・団体名<span class="opt">任意</span></label>
+        <input class="form-input" type="text" id="org" placeholder="株式会社〇〇">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">メールアドレス</label>
+        <input class="form-input" type="email" id="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">パスワード（8文字以上）</label>
+        <div class="pw-wrap">
+          <input class="form-input" type="password" id="password" placeholder="••••••••" required minlength="8" style="padding-right:60px;">
+          <button type="button" class="pw-toggle" onclick="togglePw('password',this)">表示</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password2">パスワード（確認）</label>
+        <div class="pw-wrap">
+          <input class="form-input" type="password" id="password2" placeholder="••••••••" required style="padding-right:60px;">
+          <button type="button" class="pw-toggle" onclick="togglePw('password2',this)">表示</button>
+        </div>
+      </div>
+      <div class="terms">
+        <input type="checkbox" id="agree" required>
+        <label class="terms-text" for="agree">
+          <a href="riyokiyaku.html" target="_blank">利用規約</a>および<a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意します
+        </label>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">無料ではじめる</button>
+    </form>
+
+    <div class="login-link">
+      すでにアカウントをお持ちの方は <a href="login.html">ログイン</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">© 2026 GovMeet</span>
+  <div class="footer-links">
+    <a href="riyokiyaku.html" class="footer-link">利用規約</a>
+    <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+  </div>
+</footer>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js';
+  import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js';
+  import { getFirestore, doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js';
+
+  // ══════════════════════════════════════════
+  // Firebase設定 — console.firebase.google.com
+  // でプロジェクト作成後、下記を差し替えてください
+  // ══════════════════════════════════════════
+  const firebaseConfig = {
+    apiKey:            "YOUR_API_KEY",
+    authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId:         "YOUR_PROJECT_ID",
+    storageBucket:     "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId:             "YOUR_APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+
+  const errorMessages = {
+    'auth/email-already-in-use': 'このメールアドレスはすでに登録されています。',
+    'auth/invalid-email':        'メールアドレスの形式が正しくありません。',
+    'auth/weak-password':        'パスワードは8文字以上で設定してください。',
+    'auth/configuration-not-found': 'Firebase未設定です。firebaseConfigを確認してください。',
+  };
+
+  function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.classList.add('show');
+  }
+  function hideError() {
+    document.getElementById('errorMsg').classList.remove('show');
+  }
+
+  document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    hideError();
+
+    const lastname  = document.getElementById('lastname').value.trim();
+    const firstname = document.getElementById('firstname').value.trim();
+    const org       = document.getElementById('org').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const pw        = document.getElementById('password').value;
+    const pw2       = document.getElementById('password2').value;
+    const btn       = document.getElementById('submitBtn');
+
+    if (pw !== pw2) { showError('パスワードが一致しません。'); return; }
+
+    btn.textContent = '登録中...';
+    btn.disabled    = true;
+
+    try {
+      // Firebase Auth でユーザー作成
+      const { user } = await createUserWithEmailAndPassword(auth, email, pw);
+
+      // 表示名を設定
+      await updateProfile(user, { displayName: `${lastname} ${firstname}` });
+
+      // Firestore にユーザー情報を保存
+      await setDoc(doc(db, 'users', user.uid), {
+        uid:       user.uid,
+        email:     email,
+        lastName:  lastname,
+        firstName: firstname,
+        org:       org,
+        plan:      'free',
+        createdAt: serverTimestamp(),
+      });
+
+      // 登録完了 → ダッシュボードへ（準備中はLPへ）
+      window.location.href = 'index.html';
+
+    } catch (err) {
+      showError(errorMessages[err.code] || `エラーが発生しました（${err.code}）`);
+      btn.textContent = '無料ではじめる';
+      btn.disabled    = false;
+    }
+  });
+</script>
+
+<script>
+function togglePw(id, btn) {
+  const input = document.getElementById(id);
+  input.type  = input.type === 'password' ? 'text' : 'password';
+  btn.textContent = input.type === 'password' ? '表示' : '隠す';
+}
+</script>
+</body>
+</html>

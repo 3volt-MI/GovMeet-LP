@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3volt 株式会社 — ロゴ案</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0e0e0e;
+    font-family: 'Georgia', serif;
+    color: #ccc;
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #666;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #444;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .card {
+    background: #fff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px;
+    margin-bottom: 16px;
+  }
+  .card.dark {
+    background: #111;
+  }
+  .card.mid {
+    background: #f5f2ee;
+  }
+
+  /* ===== LOGO INLINE SVG ===== */
+  .logo-wrap { display: flex; align-items: center; gap: 28px; }
+
+  /* Mark: hexagon + 3 bolts */
+  .mark { flex-shrink: 0; }
+
+  /* Wordmark */
+  .wordmark { display: flex; flex-direction: column; gap: 6px; }
+  .brand-name {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1;
+    background: linear-gradient(135deg, #F5A800 0%, #E85D00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .brand-name.dark-ver {
+    background: linear-gradient(135deg, #FFB800 0%, #FF6500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .divider {
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg, #F5A800, #E85D00);
+    border-radius: 1px;
+  }
+  .sub {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #888;
+    font-weight: 400;
+  }
+  .sub.light { color: #bbb; }
+
+  /* ===== ICON-ONLY VERSION ===== */
+  .icon-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+  footer {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #333;
+    margin-top: 60px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<h1>3volt 株式会社 — ロゴ提案</h1>
+
+<!-- LIGHT -->
+<p class="section-label">白背景</p>
+<div class="card">
+  <div class="logo-wrap">
+    <!-- Mark -->
+    <svg class="mark" width="90" height="90" viewBox="0 0 90 90">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F5A800"/>
+          <stop offset="100%" stop-color="#E85D00"/>
+        </linearGradient>
+      </defs>
+      <!-- Hexagon -->
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22"
+               fill="url(#g1)"/>
+      <!-- 3 Lightning bolts -->
+      <!-- Bolt L -->
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
+      <!-- Bolt C -->
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
+      <!-- Bolt R -->
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+    </svg>
+    <!-- Wordmark -->
+    <div class="wordmark">
+      <span class="brand-name">3volt</span>
+      <div class="divider"></div>
+      <span class="sub">株式会社</span>
+    </div>
+  </div>
+</div>
+
+<!-- DARK -->
+<p class="section-label">黒背景</p>
+<div class="card dark">
+  <div class="logo-wrap">
+    <svg class="mark" width="90" height="90" viewBox="0 0 90 90">
+      <defs>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFB800"/>
+          <stop offset="100%" stop-color="#FF6500"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#g2)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="#111" opacity="0.9"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="#111" opacity="0.9"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="#111" opacity="0.9"/>
+    </svg>
+    <div class="wordmark">
+      <span class="brand-name dark-ver">3volt</span>
+      <div class="divider"></div>
+      <span class="sub light">株式会社</span>
+    </div>
+  </div>
+</div>
+
+<!-- TINTED -->
+<p class="section-label">クリームベース（名刺・資料向け）</p>
+<div class="card mid">
+  <div class="logo-wrap">
+    <svg class="mark" width="90" height="90" viewBox="0 0 90 90">
+      <defs>
+        <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F5A800"/>
+          <stop offset="100%" stop-color="#E85D00"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#g3)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+    </svg>
+    <div class="wordmark">
+      <span class="brand-name">3volt</span>
+      <div class="divider"></div>
+      <span class="sub">株式会社</span>
+    </div>
+  </div>
+</div>
+
+<!-- ICON ONLY -->
+<p class="section-label">アイコン単体（SNS・ファビコン用）</p>
+<div class="card">
+  <div class="icon-row">
+    <!-- Large -->
+    <svg width="80" height="80" viewBox="0 0 90 90">
+      <defs>
+        <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F5A800"/>
+          <stop offset="100%" stop-color="#E85D00"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#g4)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white"/>
+    </svg>
+    <!-- Medium -->
+    <svg width="48" height="48" viewBox="0 0 90 90">
+      <defs>
+        <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F5A800"/>
+          <stop offset="100%" stop-color="#E85D00"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#g5)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white"/>
+    </svg>
+    <!-- Small (favicon) -->
+    <svg width="32" height="32" viewBox="0 0 90 90">
+      <defs>
+        <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F5A800"/>
+          <stop offset="100%" stop-color="#E85D00"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#g6)"/>
+      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white"/>
+      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white"/>
+      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white"/>
+    </svg>
+  </div>
+</div>
+
+<footer>3volt 株式会社 — Logo Concept 2026</footer>
+
+</body>
+</html>
