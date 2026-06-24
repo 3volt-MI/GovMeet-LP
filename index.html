@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GovMeet — 民間と政府をつなぐ</title>
+<title>GovMeet | 政府渉外プラットフォーム — 民間と政府をつなぐ</title>
+<meta name="description" content="民間企業・業界団体・NPO・学会が政策形成に関わるすべてのプロセスをAIで支援。国会議員712名・6.3万団体・1,408名の省庁幹部データベースを搭載した政府渉外SaaS。">
+<meta name="keywords" content="政府渉外,ロビイング,議員データベース,省庁,業界団体,NPO,政策形成,GovMeet,パブリックアフェアーズ">
+<link rel="canonical" href="https://govmeet.jp/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://govmeet.jp/">
+<meta property="og:site_name" content="GovMeet">
+<meta property="og:title" content="GovMeet | 政府渉外プラットフォーム — 民間と政府をつなぐ">
+<meta property="og:description" content="民間企業・業界団体・NPO・学会が政策形成に関わるすべてのプロセスをAIで支援。国会議員712名・6.3万団体・1,408名の省庁幹部データベースを搭載した政府渉外SaaS。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://govmeet.jp/ogp.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GovMeet | 政府渉外プラットフォーム — 民間と政府をつなぐ">
+<meta name="twitter:description" content="民間企業・業界団体・NPO・学会が政策形成に関わるすべてのプロセスをAIで支援。国会議員712名・6.3万団体のデータベース搭載。">
+<meta name="twitter:image" content="https://govmeet.jp/ogp.png">
+
+<!-- JSON-LD 構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "GovMeet",
+      "url": "https://govmeet.jp",
+      "description": "民間企業・業界団体・NPO・学会と政府をつなぐ政府渉外プラットフォーム。AIが議員・省庁・有識者へのアプローチを支援します。",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ja",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "無料プラン",
+          "price": "0",
+          "priceCurrency": "JPY"
+        },
+        {
+          "@type": "Offer",
+          "name": "プロプラン",
+          "price": "29800",
+          "priceCurrency": "JPY",
+          "billingIncrement": "月"
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "3volt",
+        "url": "https://govmeet.jp",
+        "email": "info@govmeet.jp"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://govmeet.jp",
+      "name": "GovMeet",
+      "inLanguage": "ja"
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&amp;family=Noto+Sans+JP:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Noto Sans JP', -apple-system, 'Helvetica Neue', Arial, sans-serif; color: #1A1A2E; font-weight: 400; -webkit-font-smoothing: antialiased; }
@@ -164,26 +227,29 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
 .footer-link { font-size: 12px; color: #3A4E6A; cursor: pointer; text-decoration: none; letter-spacing: 0.03em; transition: color 0.15s; }
 .footer-link:hover { color: #7A8AA0; }
 
-/* ━━━ 可読性改善: 全体フォントウェイト強化 ━━━ */
-.sec-sub { font-weight: 400; color: #4A5A78; font-size: 15px; }
-.sec-sub.muted { color: #7A8AA0; }
+/* ━━━ 可読性改善 ━━━ */
+/* 明るい背景上のテキスト */
+.sec-sub { font-weight: 500; color: #4A5A78; font-size: 15px; }
 .card-desc { font-weight: 400; color: #4A5A78; font-size: 13px; }
 .pain-text { font-weight: 400; color: #4A5A78; }
 .pain-title { font-size: 14px; }
-.step-text { font-weight: 400; color: #8FAABB; }
 .feat-desc { font-weight: 400; color: #4A5A78; font-size: 13px; }
 .plan-desc { font-weight: 400; color: #5A6A88; font-size: 13px; }
 .pf { font-weight: 400; color: #3A4A68; font-size: 13px; }
 .voice-text { font-weight: 400; font-size: 14px; }
 .faq-a { font-weight: 400; color: #4A5A78; font-size: 13px; }
 .faq-q { font-size: 14px; }
-.hero-sub-title { font-weight: 400; font-size: 17px; color: #99AACC; }
-.hero-p { font-weight: 400; color: #7A90B8; font-size: 15px; }
+/* 暗い背景（紺）上のテキスト — 十分な明度を確保 */
+.hero-p { font-weight: 400; color: #C8D8EE; font-size: 16px; }
+.stat-label { color: #A8BCDA; font-size: 12px; }
+.sec-sub.muted { color: #A8BCDA; }
+.step-text { font-weight: 400; color: #B0C8E0; font-size: 14px; }
+.step-title { font-size: 17px; }
+/* サイズ調整 */
 .flow-note { font-weight: 400; color: #7A8AA0; font-size: 13px; }
 .flow-label { font-size: 12px; }
 .nav-link { font-size: 14px; }
 .sec-h2 { font-size: 28px; }
-.step-title { font-size: 17px; }
 .feat-name { font-size: 14px; }
 .card-name { font-size: 15px; }
 .plan-highlight { font-weight: 400; font-size: 12px; }
@@ -305,6 +371,76 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
 .demo-cta { padding: 11px 28px; background: #C9A227; color: #0E2148; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; font-family: 'Noto Sans JP', sans-serif; cursor: pointer; letter-spacing: 0.05em; white-space: nowrap; transition: background 0.15s; }
 .demo-cta:hover { background: #D4AE30; }
 
+/* ━━━ 編集モード ━━━ */
+.edit-mode [contenteditable]:hover { outline: 2px dashed rgba(59,130,246,0.65); outline-offset: 3px; cursor: text; border-radius: 3px; }
+.edit-mode [contenteditable]:focus { outline: 2px solid #3B82F6; background: rgba(59,130,246,0.04); outline-offset: 3px; border-radius: 3px; }
+body.edit-mode { padding-top: 50px; }
+body.edit-mode .nav { top: 50px; }
+#editBar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 50px; z-index: 10000; background: #0F172A; padding: 0 20px; align-items: center; gap: 12px; box-shadow: 0 2px 24px rgba(0,0,0,0.5); border-bottom: 1px solid rgba(255,255,255,0.08); }
+#editBar.show { display: flex; }
+.eb-label { color: #60A5FA; font-size: 12px; font-weight: 600; font-family: 'Noto Sans JP',sans-serif; letter-spacing: 0.05em; }
+.eb-hint { color: #475569; font-size: 11px; font-family: 'Noto Sans JP',sans-serif; }
+.eb-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.1); }
+#editToggle { position: fixed; bottom: 26px; right: 26px; z-index: 9998; }
+#editToggle button { width: 46px; height: 46px; border-radius: 50%; background: #1E293B; border: 1px solid rgba(255,255,255,0.12); color: #94A3B8; font-size: 18px; cursor: pointer; box-shadow: 0 4px 24px rgba(0,0,0,0.4); transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+#editToggle button:hover { background: #334155; color: #fff; transform: scale(1.06); }
+.eb-btn { padding: 7px 16px; border-radius: 6px; font-size: 12px; font-family: 'Noto Sans JP',sans-serif; cursor: pointer; font-weight: 500; transition: all 0.15s; }
+.eb-save { background: #3B82F6; color: #fff; border: none; }
+.eb-save:hover { background: #2563EB; }
+.eb-close { background: transparent; color: #64748B; border: 1px solid rgba(255,255,255,0.1); }
+.eb-close:hover { color: #94A3B8; }
+.eb-spacer { flex: 1; }
+.eb-color-group { display:flex; align-items:center; gap:5px; }
+.eb-color-group label { font-size:10px; color:#64748B; font-family:'Noto Sans JP',sans-serif; white-space:nowrap; }
+.eb-color-group input[type=color] { width:28px; height:24px; border:1px solid rgba(255,255,255,0.15); border-radius:4px; padding:1px 2px; background:transparent; cursor:pointer; }
+#stylePanel { position:fixed; z-index:10001; background:#1E293B; border-radius:12px; padding:16px; box-shadow:0 8px 40px rgba(0,0,0,0.55); width:204px; display:none; border:1px solid rgba(255,255,255,0.1); }
+.sp-title { font-size:11px; color:#60A5FA; font-weight:600; font-family:'Noto Sans JP',sans-serif; margin-bottom:13px; letter-spacing:0.04em; }
+.sp-row { display:flex; align-items:center; gap:8px; margin-bottom:9px; }
+.sp-lbl { font-size:11px; color:#94A3B8; font-family:'Noto Sans JP',sans-serif; width:56px; flex-shrink:0; }
+.sp-row input[type=color] { width:34px; height:26px; border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:1px; background:transparent; cursor:pointer; }
+.sp-row input[type=range] { flex:1; accent-color:#3B82F6; cursor:pointer; }
+.sp-val { font-size:10px; color:#64748B; width:32px; text-align:right; font-family:monospace; }
+.sp-row select { flex:1; background:#0F172A; color:#CBD5E1; border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:4px 6px; font-size:11px; }
+.sp-close { width:100%; margin-top:8px; padding:6px; background:rgba(255,255,255,0.05); color:#64748B; border:1px solid rgba(255,255,255,0.08); border-radius:6px; font-size:11px; cursor:pointer; font-family:'Noto Sans JP',sans-serif; transition:all 0.15s; }
+.sp-close:hover { background:rgba(255,255,255,0.1); color:#94A3B8; }
+.sp-delete { width:100%; margin-top:5px; padding:6px; background:rgba(239,68,68,0.1); color:#F87171; border:1px solid rgba(239,68,68,0.25); border-radius:6px; font-size:11px; cursor:pointer; font-family:'Noto Sans JP',sans-serif; transition:all 0.15s; }
+.sp-delete:hover { background:rgba(239,68,68,0.22); color:#FCA5A5; }
+
+/* ━━━ セクションドラッグ ━━━ */
+.edit-mode section { position: relative; }
+.drag-handle { position:absolute; top:10px; left:10px; z-index:200; width:28px; height:28px; background:rgba(59,130,246,0.88); border-radius:7px; cursor:grab; display:none; align-items:center; justify-content:center; color:#fff; font-size:15px; line-height:1; user-select:none; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+.drag-handle:active { cursor:grabbing; }
+.edit-mode section:hover > .drag-handle { display:flex; }
+section.drag-over { outline:2px dashed #3B82F6; outline-offset:-3px; }
+section.dragging { opacity:0.4; }
+
+/* ━━━ テキスト移動モード ━━━ */
+.edit-mode.alt-drag [contenteditable] { cursor: move !important; outline: 1px dashed rgba(99,179,237,0.5); }
+.edit-mode.alt-drag [contenteditable]:hover { outline: 2px dashed #63B3ED !important; }
+.text-moving { box-shadow: 0 4px 24px rgba(59,130,246,0.25); opacity: 0.85; }
+
+/* ━━━ ドットグリッド背景 (Hero) ━━━ */
+
+/* ━━━ Heroネットワーク図 ━━━ */
+.hero-network { position: absolute; right: 5%; top: 50%; transform: translateY(-52%); pointer-events: none; z-index: 1; }
+@media (max-width: 1060px) { .hero-network { display: none; } }
+
+/* ━━━ セクション見出しゴールドライン ━━━ */
+.sec-h2::after { content: ''; display: block; width: 28px; height: 2px; background: linear-gradient(90deg, #C9A227, rgba(201,162,39,0.12)); border-radius: 2px; margin: 12px auto 0; }
+
+/* ━━━ スクロールフェードイン ━━━ */
+.animate { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.animate.visible { opacity: 1; transform: none; }
+
+/* ━━━ CTAフローティング円 ━━━ */
+.cta-section { position: relative; overflow: hidden; }
+.cta-dot { position: absolute; border-radius: 50%; background: rgba(201,162,39,0.07); pointer-events: none; }
+
+/* ━━━ Founderセクション引用装飾 ━━━ */
+.founder-text-wrap { position: relative; }
+.founder-kagi { position: absolute; top: -24px; left: -10px; font-family: 'Noto Serif JP', serif; font-size: 96px; color: rgba(201,162,39,0.08); line-height: 1; user-select: none; pointer-events: none; }
+.founder-text-wrap > * { position: relative; }
+
 /* レスポンシブ */
 @media (max-width: 640px) {
   .hero h1 { font-size: 32px; }
@@ -312,25 +448,19 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
   .stat-divider { width: 40px; height: 1px; margin: 0 auto; }
   .pain-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+  .founder-grid { grid-template-columns: 1fr !important; }
+  .founder-img { height: 220px !important; }
 }
 </style>
 </head>
-<body>
+<body class="" style="">
 
 <!-- ナビ -->
 <nav class="nav">
   <div class="nav-logo">
-    <svg width="30" height="30" viewBox="0 0 90 90" aria-label="GovMeet">
-      <defs>
-        <linearGradient id="navLogo" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#F5A800"/>
-          <stop offset="100%" stop-color="#E85D00"/>
-        </linearGradient>
-      </defs>
-      <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#navLogo)"/>
-      <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
-      <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
-      <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-label="GovMeet">
+      <rect width="24" height="24" rx="5" fill="#C9A227"></rect>
+      <polygon points="13,4 5,13 12,13 11,20 19,10 12,10 13,4" fill="#0E2148"></polygon>
     </svg>
     <span class="nav-product">GovMeet</span>
   </div>
@@ -341,20 +471,19 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
     <a href="#" class="nav-link" onclick="event.preventDefault();openModal()">お問い合わせ</a>
   </div>
   <div class="nav-cta">
-    <button class="btn-ghost" onclick="location.href='login.html'">ログイン</button>
-    <button class="btn-navy" onclick="location.href='signup.html'">無料ではじめる</button>
+    <button class="btn-ghost" onclick="location.href='https://govmeet.jp'">ログイン</button>
+    <button class="btn-navy" onclick="location.href='https://govmeet.jp'">無料ではじめる</button>
   </div>
 </nav>
 
 <!-- ヒーロー -->
-<section class="hero">
-  <div class="eyebrow">▪ 政府渉外プラットフォーム</div>
-  <h1>民間と政府を、<em>つなぐ</em>。</h1>
-  <p class="hero-sub-title">民間企業・業界団体・NPO・学会・政治家・官僚・国民<br>すべてのステークホルダーをつなぐインフラ</p>
-  <p class="hero-p">政府との連携をこれから模索したい、もっと効率化したい。GovMeetは、政策形成に関わるすべてのプロセスに伴走します。</p>
+<section class="hero"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
+  
+  <h1>政策議論を活発に</h1>
+  <p class="hero-p">GovMeetはロビー活動をAIで支援する政策プラットフォームです。国会議員・省庁・業界団体・研究者のDBをもとに、あなたに沿った渉外活動を提案から管理まで行います。</p>
   <div class="hero-btns">
-    <button class="btn-gold" onclick="openDemo()">無料ではじめる</button>
-    <button class="btn-outline" onclick="openModal()">お問い合わせ</button>
+    <button class="btn-gold" onclick="location.href='https://govmeet.jp'">無料ではじめる</button>
+    <button class="btn-outline" onclick="openDemo()">デモを見る</button>
   </div>
   <!-- データ統計バー -->
   <div class="hero-stats">
@@ -369,76 +498,102 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <div class="stat-num">180<span>団体</span></div>
+      <div class="stat-num">6.3万<span>団体</span></div>
       <div class="stat-label">登録業界団体・NPO</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <div class="stat-num">725<span>名</span></div>
+      <div class="stat-num">1,408<span>名</span></div>
       <div class="stat-label">省庁幹部・有識者</div>
     </div>
   </div>
+
+  <!-- ネットワーク挿絵 -->
+  <div class="hero-network" aria-hidden="true">
+    <svg width="270" height="240" viewBox="0 0 270 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="52" y1="50" x2="135" y2="118" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"></line>
+      <line x1="218" y1="44" x2="135" y2="118" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"></line>
+      <line x1="135" y1="118" x2="58" y2="190" stroke="rgba(201,162,39,0.18)" stroke-width="1.2"></line>
+      <line x1="135" y1="118" x2="212" y2="182" stroke="rgba(201,162,39,0.18)" stroke-width="1.2"></line>
+      <line x1="52" y1="50" x2="218" y2="44" stroke="rgba(201,162,39,0.07)" stroke-width="1" stroke-dasharray="3 6"></line>
+      <line x1="58" y1="190" x2="212" y2="182" stroke="rgba(201,162,39,0.07)" stroke-width="1" stroke-dasharray="3 6"></line>
+      <circle cx="52" cy="50" r="22" fill="rgba(14,33,72,0.75)" stroke="rgba(201,162,39,0.4)" stroke-width="1.5"></circle>
+      <circle cx="218" cy="44" r="22" fill="rgba(14,33,72,0.75)" stroke="rgba(201,162,39,0.4)" stroke-width="1.5"></circle>
+      <circle cx="135" cy="118" r="30" fill="rgba(201,162,39,0.13)" stroke="rgba(201,162,39,0.6)" stroke-width="2"></circle>
+      <circle cx="58" cy="190" r="17" fill="rgba(14,33,72,0.75)" stroke="rgba(201,162,39,0.3)" stroke-width="1.5"></circle>
+      <circle cx="212" cy="182" r="17" fill="rgba(14,33,72,0.75)" stroke="rgba(201,162,39,0.3)" stroke-width="1.5"></circle>
+      <text x="52" y="54" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="'Noto Sans JP',sans-serif">議員</text>
+      <text x="218" y="48" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="'Noto Sans JP',sans-serif">省庁</text>
+      <text x="135" y="121" text-anchor="middle" fill="rgba(201,162,39,0.95)" font-size="9" font-family="'Noto Serif JP',serif" font-weight="500">Gov</text>
+      <text x="58" y="194" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="'Noto Sans JP',sans-serif">団体</text>
+      <text x="212" y="186" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="'Noto Sans JP',sans-serif">有識者</text>
+    </svg>
+  </div>
 </section>
 
+<!-- wave: hero(dark) → stakeholder(gray) -->
+<div aria-hidden="true" style="background:#0E2148; margin:0; padding:0; line-height:0; display:block;">
+  <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block; width:100%; height:72px;">
+    <path d="M0,36 C180,72 420,8 720,42 C960,68 1200,12 1440,28 L1440,72 L0,72 Z" fill="#F4F6FA"></path>
+  </svg>
+</div>
 <!-- ステークホルダー -->
-<section class="gray-bg" style="padding:4rem 2rem;">
-  <div class="sec-ey">GovMeetでできること</div>
+<section class="gray-bg" style="padding:4rem 2rem;" draggable="false"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-h2">政策を動かす人を、まず知ることから。</div>
-  <div class="sec-sub">政策は、議員・官僚・有識者・業界団体が複雑に絡み合って形成されます。GovMeetは「あなたの課題に関係するのは誰か」をAIが特定し、アプローチの全プロセスを支援します。</div>
+  <div class="sec-sub">議員だけじゃない。省庁・有識者・業界団体が複雑に絡み合って政策は動く。「誰に話せばいいか」をAIが整理します。</div>
   <div class="sh-grid">
-    <div class="sh-card">
+    <div class="sh-card animate visible" style="transition-delay: 0s;">
       <div class="sh-icon">🏛️</div>
       <div class="sh-count">712<span>名</span></div>
       <div class="sh-name">国会議員</div>
       <div class="sh-desc">衆参両院の全議員を収録。政策スタンス・委員会・所属議連で絞り込み、アプローチすべき議員をすぐ特定できます。</div>
     </div>
-    <div class="sh-card">
+    <div class="sh-card animate visible" style="transition-delay: 0.07s;">
       <div class="sh-icon">📋</div>
       <div class="sh-count">12<span>省庁</span></div>
       <div class="sh-name">省庁・官僚</div>
       <div class="sh-desc">経産省・厚労省など12省庁の組織と担当局を把握。法案の実務を担う部局を特定し、効率的にアプローチします。</div>
     </div>
-    <div class="sh-card">
+    <div class="sh-card animate visible" style="transition-delay: 0.14s;">
       <div class="sh-icon">🔬</div>
-      <div class="sh-count">725<span>名</span></div>
+      <div class="sh-count">2,354<span>名</span></div>
       <div class="sh-name">学会・有識者</div>
       <div class="sh-desc">政府審議会・検討会に登場する有識者・研究者を収録。政策の根拠を作る専門家へのアプローチを支援します。</div>
     </div>
-    <div class="sh-card">
+    <div class="sh-card animate visible" style="transition-delay: 0.21s;">
       <div class="sh-icon">🤝</div>
-      <div class="sh-count">180<span>団体</span></div>
+      <div class="sh-count">6.3万<span>団体</span></div>
       <div class="sh-name">業界団体・NPO</div>
       <div class="sh-desc">政策形成に影響力を持つ団体を網羅。連携できる団体・競合するポジションの団体を把握して戦略を立てます。</div>
     </div>
   </div>
   <div class="sh-note">
     <span class="sh-note-icon">✦</span>
-    「うちの業界に関係する議員は誰？」と話しかけるだけ。AIがステークホルダーを自動で整理します。
+    「うちの業界に関係する議員は誰？」——それだけで始められます。
   </div>
 </section>
 
 <!-- ターゲット -->
-<section>
-  <div class="sec-ey">こんな方に</div>
-  <div class="sec-h2">政府との連携を模索したい、効率化したい、すべての人へ</div>
-  <div class="sec-sub">業界問わず、政府渉外に関わるすべての方のためのプラットフォームです。</div>
+<section><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
+  <div class="sec-h2">渉外担当者だけのツールじゃない。</div>
+  <div class="sec-sub">政府と向き合う場面は、立場によって違う。それぞれに合わせた使い方があります。</div>
   <div class="grid4">
-    <div class="card">
+    <div class="card animate visible" style="transition-delay: 0s;">
       <div class="card-icon" style="background:#EEF2FA">🏢</div>
       <div class="card-name">企業の渉外担当者</div>
       <div class="card-desc">政府渉外をこれから始めたい、または効率化したい。議員・省庁へのアプローチ方法を知りたい。</div>
     </div>
-    <div class="card">
+    <div class="card animate visible" style="transition-delay: 0.07s;">
       <div class="card-icon" style="background:#FFF0C0">🤝</div>
       <div class="card-name">業界団体・非営利団体</div>
       <div class="card-desc">業界・団体の声を政策に反映させたい。複数の議員や省庁に効率よく働きかけたい。</div>
     </div>
-    <div class="card">
+    <div class="card animate visible" style="transition-delay: 0.14s;">
       <div class="card-icon" style="background:#E1F5EE">📰</div>
       <div class="card-name">記者・ジャーナリスト</div>
       <div class="card-desc">議員の政策スタンスや発言を素早く調査したい。取材アポを効率よく取りたい。</div>
     </div>
-    <div class="card">
+    <div class="card animate visible" style="transition-delay: 0.21s;">
       <div class="card-icon" style="background:#EEEDFE">📊</div>
       <div class="card-name">政策コンサルタント・ロビイスト</div>
       <div class="card-desc">複数クライアントの案件を同時管理したい。政府渉外案件のマネジメントと重複アプローチ管理を効率化したい。</div>
@@ -447,47 +602,46 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
 </section>
 
 <!-- 悩み -->
-<section class="gray-bg">
-  <div class="sec-ey">よくある悩み</div>
+<section class="gray-bg"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-h2">こんな壁、ありませんか？</div>
-  <div class="sec-sub">政府渉外に取り組む人が直面する課題を、GovMeetが解決します。</div>
+  <div class="sec-sub">政府渉外を始めようとしたとき、最初の壁は案外シンプルです。</div>
   <div class="pain-grid">
-    <div class="pain-card">
+    <div class="pain-card animate visible" style="transition-delay: 0s;">
       <div class="pain-icon">✕</div>
       <div>
         <div class="pain-title">そもそも政府と連携できるかわからない</div>
         <div class="pain-text">自社や団体が政府と連携できる立場なのか、どんな形で関われるのかイメージが持てない。</div>
       </div>
     </div>
-    <div class="pain-card">
+    <div class="pain-card animate visible" style="transition-delay: 0.07s;">
       <div class="pain-icon">✕</div>
       <div>
         <div class="pain-title">どのように連携すればいいかわからない</div>
         <div class="pain-text">アプローチの手順・タイミング・方法など、政府渉外のやり方自体がわからない。</div>
       </div>
     </div>
-    <div class="pain-card">
+    <div class="pain-card animate visible" style="transition-delay: 0.14s;">
       <div class="pain-icon">✕</div>
       <div>
         <div class="pain-title">誰にアプローチすればいいかわからない</div>
         <div class="pain-text">担当議員や省庁の探し方がわからず、どこから始めればいいか迷ってしまう。</div>
       </div>
     </div>
-    <div class="pain-card">
+    <div class="pain-card animate visible" style="transition-delay: 0.21s;">
       <div class="pain-icon">✕</div>
       <div>
         <div class="pain-title">自社の課題や訴えるべき論点がわからない</div>
         <div class="pain-text">どんな政策課題を訴えるべきか、自社の立場から何を提言できるのかが整理できていない。</div>
       </div>
     </div>
-    <div class="pain-card">
+    <div class="pain-card animate visible" style="transition-delay: 0s;">
       <div class="pain-icon">✕</div>
       <div>
         <div class="pain-title">ステークホルダーのリサーチに時間がかかる</div>
         <div class="pain-text">関連する議員・省庁・学会・NPOを調べるだけで膨大な時間を消費してしまう。</div>
       </div>
     </div>
-    <div class="pain-card">
+    <div class="pain-card animate visible" style="transition-delay: 0.07s;">
       <div class="pain-icon">✕</div>
       <div>
         <div class="pain-title"><span class="pain-tag">政策コンサル向け</span><br>同じ議員に重複してアプローチしている</div>
@@ -497,13 +651,19 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
   </div>
 </section>
 
+<!-- wave: pain(gray) → how(dark) -->
+<div aria-hidden="true" style="background:#F4F6FA; margin:0; padding:0; line-height:0; display:block;">
+  <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block; width:100%; height:72px;">
+    <path d="M0,0 C300,64 600,4 1000,50 C1200,76 1350,18 1440,38 L1440,72 L0,72 Z" fill="#071433"></path>
+  </svg>
+</div>
 <!-- 使い方 -->
-<section class="navy-bg" id="how">
+<section class="navy-bg" id="how"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-ey">使い方</div>
-  <div class="sec-h2 white">AIが伴走する3つのステップ</div>
-  <div class="sec-sub muted">政府渉外の経験がなくても、AIが課題の特定から実行まで一緒に進めます。</div>
+  <div class="sec-h2 white">はじめての渉外でも、3ステップで動ける。</div>
+  <div class="sec-sub muted">経験ゼロでも動ける。経験者はもっと速く動ける。</div>
   <div class="steps">
-    <div class="step">
+    <div class="step animate visible" style="transition-delay: 0.14s;">
       <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
       <div class="step-body">
         <div class="step-title">AIが課題を特定する</div>
@@ -511,7 +671,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
         <span class="step-badge">✦ AIアドバイザー機能</span>
       </div>
     </div>
-    <div class="step">
+    <div class="step animate visible" style="transition-delay: 0.21s;">
       <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
       <div class="step-body">
         <div class="step-title">戦略を作成する</div>
@@ -519,7 +679,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
         <span class="step-badge">▪ 行動計画・メール生成（プロ）</span>
       </div>
     </div>
-    <div class="step">
+    <div class="step animate visible" style="transition-delay: 0s;">
       <div class="step-left"><div class="step-num">3</div></div>
       <div class="step-body">
         <div class="step-title">タスクを管理する</div>
@@ -530,43 +690,49 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
   </div>
 </section>
 
+<!-- wave: how(dark) → features(white) -->
+<div aria-hidden="true" style="background:#0E2148; margin:0; padding:0; line-height:0; display:block;">
+  <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block; width:100%; height:72px;">
+    <path d="M0,45 C260,0 560,72 900,30 C1140,8 1320,58 1440,22 L1440,72 L0,72 Z" fill="#ffffff"></path>
+  </svg>
+</div>
 <!-- 機能 -->
-<section id="features">
+<section id="features"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-ey">主な機能</div>
-  <div class="sec-h2">政府渉外に必要なすべてが揃う</div>
-  <div class="sec-sub">ステークホルダーの把握から戦略立案、案件管理まで一気通貫で対応します。</div>
+  <div class="sec-h2">現場で使える、6つの機能</div>
+  <div class="sec-sub">情報収集から実行・管理まで、それぞれのフェーズをカバーします。</div>
   <div class="feat-grid">
-    <div class="feat">
+    <div class="feat animate visible" style="transition-delay: 0.07s;">
       <div class="feat-icon">✦</div>
       <div class="feat-name">AIアドバイザー</div>
       <div class="feat-desc">状況を話しかけるだけで課題を整理。政府連携の入口をナビゲートします。</div>
       <span class="badge badge-partial">月10回（無料）</span>
     </div>
-    <div class="feat">
+    <div class="feat animate visible" style="transition-delay: 0.14s;">
       <div class="feat-icon">🔍</div>
       <div class="feat-name">議員・ステークホルダー検索</div>
       <div class="feat-desc">議員・省庁・学会・NPOを横断検索。政策テーマから関連するすべての人を特定します。</div>
       <span class="badge badge-free">無料</span>
     </div>
-    <div class="feat">
+    <div class="feat animate visible" style="transition-delay: 0.21s;">
       <div class="feat-icon">📅</div>
       <div class="feat-name">国会カレンダー</div>
       <div class="feat-desc">国会日程・外交・総理動静・党内日程・ロビー好機を一覧で把握できます。</div>
       <span class="badge badge-free">無料</span>
     </div>
-    <div class="feat">
+    <div class="feat animate visible" style="transition-delay: 0s;">
       <div class="feat-icon">🏛️</div>
       <div class="feat-name">省庁・局検索</div>
       <div class="feat-desc">どの省庁・局が関連するかを特定。議員との会話の前提を整えます。</div>
       <span class="badge badge-pro">プロ</span>
     </div>
-    <div class="feat">
+    <div class="feat animate visible" style="transition-delay: 0.07s;">
       <div class="feat-icon">✉</div>
       <div class="feat-name">カスタムメール生成</div>
       <div class="feat-desc">議員ごとのスタンスに最適化されたアプローチメールをAIが自動生成。GovMeet認証付きで信頼性を高めます。</div>
       <span class="badge badge-pro">プロ・無制限</span>
     </div>
-    <div class="feat">
+    <div class="feat animate visible" style="transition-delay: 0.14s;">
       <div class="feat-icon">📋</div>
       <div class="feat-name">案件管理・行動計画</div>
       <div class="feat-desc">国会日程と連動した行動計画を自動生成。複数の渉外案件を一元管理します。</div>
@@ -576,13 +742,13 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
 </section>
 
 <!-- 料金 -->
-<section class="gray-bg" id="plans">
+<section class="gray-bg" id="plans"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-ey">料金</div>
   <div class="sec-h2">まずは無料ではじめられます</div>
   <div class="sec-sub">政府渉外をこれから始める方も、無料プランで基本機能をお試しいただけます。</div>
   <div class="plan-grid">
 
-    <div class="plan">
+    <div class="plan animate visible" style="transition-delay: 0.21s;">
       <div class="plan-label">無料プラン</div>
       <div class="plan-price">¥0 <span>/ 月</span></div>
       <div class="plan-desc">まず試してみたい方に。基本的な情報収集と課題整理ができます。</div>
@@ -594,27 +760,27 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
       <div class="pf dim"><span class="xk">✗</span>省庁・局検索</div>
       <div class="pf dim"><span class="xk">✗</span>行動計画の自動生成</div>
       <div class="pf dim"><span class="xk">✗</span>GovMeet認証メール</div>
-      <button class="plan-btn pb-free" onclick="location.href='signup.html'">無料ではじめる</button>
+      <button class="plan-btn pb-free" onclick="location.href='https://govmeet.jp'">無料ではじめる</button>
     </div>
 
-    <div class="plan featured">
+    <div class="plan featured animate visible" style="transition-delay: 0s;">
       <div class="plan-popular">おすすめ</div>
       <div class="plan-label gold">プロプラン</div>
       <div class="plan-price">¥29,800 <span>/ 月</span></div>
       <div class="plan-desc">本格的に政府渉外を進めたい方に。すべての機能が使えます。</div>
-      <div class="plan-highlight">✉ GovMeet認証メール＋議員会館への直接面会依頼に対応</div>
+      <div class="plan-highlight">✉ GovMeet認証メール</div>
       <div class="pf"><span class="ck">✓</span>AIアドバイザー（無制限）</div>
       <div class="pf"><span class="ck">✓</span>省庁・局検索</div>
       <div class="pf"><span class="ck">✓</span>メール生成（無制限・AI最適化）</div>
       <div class="pf"><span class="ck">✓</span>GovMeet認証メール送付</div>
-      <div class="pf"><span class="ck">✓</span>議員会館への直接面会依頼</div>
+      <div class="pf"><span class="ck"><br></span></div>
       <div class="pf"><span class="ck">✓</span>行動計画の自動生成</div>
       <div class="pf"><span class="ck">✓</span>案件管理（無制限）</div>
       <div class="pf"><span class="ck">✓</span>CRM・アプローチ管理</div>
-      <button class="plan-btn pb-pro" onclick="location.href='upgrade.html'">プロプランに登録</button>
+      <button class="plan-btn pb-pro" onclick="location.href='https://govmeet.jp'">プロプランに登録</button>
     </div>
 
-    <div class="plan">
+    <div class="plan animate visible" style="transition-delay: 0.07s;">
       <div class="plan-label">エンタープライズ <em class="coming">Coming Soon</em></div>
       <div class="plan-price" style="color:#C0C8D8; font-size:22px; padding-top:4px;">要相談</div>
       <div class="plan-desc" style="color:#C0C8D8">大規模団体・官公庁・企業向けのカスタムプランです。</div>
@@ -624,51 +790,60 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
       <div class="pf dim"><span class="xk">✓</span>カスタムデータ連携</div>
       <div class="pf dim"><span class="xk">✓</span>SLA保証・セキュリティ審査対応</div>
       <div class="pf dim"><span class="xk">✓</span>アプローチ重複チェック機能</div>
-      <button class="plan-btn pb-ent" disabled>詳細をお問い合わせ</button>
+      <button class="plan-btn pb-ent" onclick="openModal()" style="cursor:pointer;color:#7A8AA0;">詳細をお問い合わせ</button>
     </div>
 
   </div>
 </section>
 
-<!-- ユーザーの声 -->
-<section>
-  <div class="sec-ey">ユーザーの声</div>
-  <div class="sec-h2">実際のユーザーから、リアルな声を</div>
-  <div class="sec-sub">ローンチ後、実際にご利用いただいた方の声を掲載予定です。</div>
-  <div class="voice-grid">
-    <div class="voice" style="min-height:120px;background:#F9FAFC;border:1px dashed #DDE3EE;"></div>
-    <div class="voice" style="min-height:120px;background:#F9FAFC;border:1px dashed #DDE3EE;"></div>
-    <div class="voice" style="min-height:120px;background:#F9FAFC;border:1px dashed #DDE3EE;"></div>
+<!-- なぜ作ったのか -->
+<section style="background:#fff; padding:5rem 2rem;"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
+  <div class="founder-grid" style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+    <div class="founder-text-wrap">
+      <div class="founder-kagi" aria-hidden="true">「</div>
+      <div style="font-size:11px; color:#C9A227; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:18px; font-family:'Noto Sans JP',sans-serif; font-weight:500;">なぜ作ったのか</div>
+      <h2 style="font-family:'Noto Serif JP',serif; font-size:26px; font-weight:500; color:#0E2148; line-height:1.6; margin-bottom:1.5rem; letter-spacing:0.01em;">政府渉外は、<br>人脈がある人だけの<br>ものじゃない。</h2>
+      <p style="font-size:15px; color:#4A5A78; line-height:2.1; margin-bottom:1rem; font-weight:400;">どの議員に話すべきか。省庁のどの部局が担当しているか。そのリサーチだけで、数週間が消えることがある。</p>
+      <p style="font-size:15px; color:#4A5A78; line-height:2.1; margin-bottom:1.75rem; font-weight:400;">GovMeetはその入口を、誰にでも開くために作りました。現在ベータ公開中です。使いながら一緒に育ててください。</p>
+      <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+        <button onclick="location.href='https://govmeet.jp'" style="font-size: 14px; font-weight: 500; padding: 12px 32px; border-radius: 8px; background: rgb(14, 33, 72); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; font-family: &quot;Noto Sans JP&quot;, sans-serif; letter-spacing: 0.05em; transition: background 0.15s;" onmouseover="this.style.background='#162E60'" onmouseout="this.style.background='#0E2148'">無料で試してみる</button>
+        <span style="font-size:12px; color:#AAB4C8; font-weight:400;">クレジットカード不要</span>
+      </div>
+      <div style="margin-top:1.75rem; font-size:13px; color:#B0B8CC; font-weight:400; letter-spacing:0.04em;">— GovMeet チーム</div>
+    </div>
+    <div>
+      <img class="founder-img" src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="国会議事堂" style="width:100%; border-radius:14px; object-fit:cover; height:360px; display:block; filter:saturate(0.65) brightness(0.95);" onerror="this.parentElement.innerHTML='&lt;div style=\'height:360px;background:#EEF2FA;border-radius:14px;display:flex;align-items:center;justify-content:center;\'&gt;&lt;span style=\'font-size:48px;\'&gt;🏛️&lt;/span&gt;&lt;/div&gt;'">
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="gray-bg">
+<section class="gray-bg"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-ey">よくある質問</div>
   <div class="sec-h2">はじめる前に知っておきたいこと</div>
   <div class="sec-sub" style="margin-bottom:1.5rem"></div>
   <div class="faq-list">
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item animate visible" onclick="this.classList.toggle('open')" style="transition-delay: 0.14s;">
       <div class="faq-q">政府渉外の経験がまったくなくても使えますか？<span class="icon">⌄</span></div>
       <div class="faq-a">はい、むしろ「これから始めたい」という方向けに設計されています。AIアドバイザーが「そもそも自社が政府と連携できるか」という段階から整理してくれます。課題の特定・戦略立案・実行まで伴走します。</div>
     </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item animate visible" onclick="this.classList.toggle('open')" style="transition-delay: 0.21s;">
       <div class="faq-q">無料プランでどこまで使えますか？<span class="icon">⌄</span></div>
       <div class="faq-a">AIアドバイザー（月10回）・議員・ステークホルダー検索・国会カレンダー・メール生成（月2通）・案件管理（1案件）が無料でご利用いただけます。本格的に動かしたい場合はプロプランをご検討ください。</div>
     </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item animate visible" onclick="this.classList.toggle('open')" style="transition-delay: 0s;">
       <div class="faq-q">GovMeet認証メールとは何ですか？<span class="icon">⌄</span></div>
       <div class="faq-a">GovMeet経由で送付されたことを示す認証が付いたメールです。GovMeetが議員・議員事務所との関係を積み上げることで、将来的には「GovMeet経由なら対応する」という議員が増えることを目指しています。現時点では信頼性向上の取り組みとして提供しています。</div>
     </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">議員会館への直接面会依頼とはどういう機能ですか？<span class="icon">⌄</span></div>
+    <div class="faq-item animate visible" onclick="this.classList.toggle('open')" style="transition-delay: 0.07s;">
+      <div class="faq-q">議員への面会依頼はどうすればいいですか？<span class="icon">⌄</span></div>
       <div class="faq-a">GovMeetのプロプラン会員向けに、議員会館の事務所へ直接面会依頼を送付するサポートを行います。メール生成・送付のサポートに加え、GovMeet経由での依頼として取り次ぎます。詳細はお問い合わせください。</div>
     </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item animate visible open" onclick="this.classList.toggle('open')" style="transition-delay: 0.14s;">
       <div class="faq-q">エンタープライズプランはどのような内容ですか？<span class="icon">⌄</span></div>
       <div class="faq-a">大規模団体・企業・官公庁向けに、メンバー無制限・専任サポート・カスタムデータ連携・SLA保証・アプローチ重複チェック機能などを提供します。現在準備中です。詳細はお問い合わせフォームよりご連絡ください。</div>
     </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-item animate visible" onclick="this.classList.toggle('open')" style="transition-delay: 0.21s;">
       <div class="faq-q">解約はいつでもできますか？<span class="icon">⌄</span></div>
       <div class="faq-a">はい、いつでも解約できます。解約後は当月末まで引き続きご利用いただけます。長期契約の縛りはありません。</div>
     </div>
@@ -676,21 +851,26 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
+  <div class="cta-dot" style="width:220px;height:220px;top:-90px;left:-70px;"></div>
+  <div class="cta-dot" style="width:150px;height:150px;bottom:-55px;right:7%;"></div>
+  <div class="cta-dot" style="width:72px;height:72px;top:22%;right:3%;"></div>
+  <div class="cta-dot" style="width:52px;height:52px;bottom:18%;left:5%;"></div>
+  <div class="cta-dot" style="width:36px;height:36px;top:60%;left:20%;"></div>
   <h2>まず、AIに話しかけてみてください。</h2>
-  <p>「そもそも政府と連携できるかわからない」でも大丈夫。GovMeetのAIアドバイザーが、政府との連携実現まで一緒に伴走します。</p>
+  <p>「うちの業界に関係する議員って誰？」でも、「そもそも政府と関われるか？」でも、何でもいい。まず話しかけてみてください。</p>
   <div class="cta-btns">
-    <button class="btn-gold" onclick="location.href='signup.html'">無料ではじめる</button>
-    <button class="btn-outline" onclick="openModal()">プロプランを相談する</button>
+    <button class="btn-gold" onclick="location.href='https://govmeet.jp'">無料ではじめる</button>
+    <button class="btn-outline" onclick="location.href='contact.html'">プロプランを相談する</button>
   </div>
 </section>
 
 <!-- ━━━ 最下部 お問い合わせCTA ━━━ -->
-<section style="background:#fff; padding:4rem 2rem; text-align:center; border-top:2px solid #E8EDF5;">
+<section style="background:#fff; padding:4rem 2rem; text-align:center; border-top:2px solid #E8EDF5;"><div class="drag-handle" title="ドラッグして並び替え">⣿</div>
   <div class="sec-ey">Contact</div>
   <div class="sec-h2" style="margin-bottom:14px;">まずはお気軽にご相談ください</div>
-  <p style="font-size:15px;color:#4A5A78;line-height:1.9;margin-bottom:2rem;font-weight:400;max-width:460px;margin-left:auto;margin-right:auto;">プランのご相談・デモのご依頼・エンタープライズのお見積もりなど、<br>どんな内容でもお答えします。</p>
-  <button onclick="openModal()" style="font-size:15px;font-weight:600;padding:15px 40px;border-radius:8px;background:#C9A227;color:#0E2148;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;letter-spacing:0.06em;transition:background 0.15s,transform 0.1s;" onmouseover="this.style.background='#D4AE30';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#C9A227';this.style.transform='translateY(0)'">お問い合わせをする</button>
+  <p style="font-size:15px;color:#4A5A78;line-height:1.9;margin-bottom:2rem;font-weight:400;max-width:460px;margin-left:auto;margin-right:auto;">プランのご相談・デモのご依頼・エンタープライズのお見積もりなど、どんな内容でもお答えします。</p>
+  <button onclick="location.href='contact.html'" style="font-size: 15px; font-weight: 600; padding: 15px 40px; border-radius: 8px; background: rgb(201, 162, 39); color: rgb(14, 33, 72); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; font-family: &quot;Noto Sans JP&quot;, sans-serif; letter-spacing: 0.06em; transition: background 0.15s, transform 0.1s; transform: translateY(0px);" onmouseover="this.style.background='#D4AE30';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#C9A227';this.style.transform='translateY(0)'">お問い合わせをする</button>
   <p style="margin-top:16px;font-size:13px;color:#AAB4C8;font-weight:400;">メールでも受け付けています → <a href="mailto:info@govmeet.jp" style="color:#7A8AA0;text-decoration:none;border-bottom:1px solid #DDE3EE;">info@govmeet.jp</a></p>
 </section>
 
@@ -733,7 +913,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
           </div>
         </div>
         <div class="chat-input-mock">
-          <input type="text" placeholder="続けて話しかけられます..." disabled>
+          <input type="text" placeholder="続けて話しかけられます..." disabled="">
           <button>送信</button>
         </div>
       </div>
@@ -741,7 +921,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
       <!-- Tab 1: 議員検索 -->
       <div class="demo-panel" id="demoPanel1">
         <div class="search-mock">
-          <input type="text" value="エネルギー" readonly>
+          <input type="text" value="エネルギー" readonly="">
           <button>検索</button>
         </div>
         <div class="search-count">37件の議員が見つかりました</div>
@@ -830,7 +1010,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
     </div>
     <div class="demo-footer">
       <div class="demo-footer-note">クレジットカード不要。<strong>無料プランですぐ使えます。</strong></div>
-      <button class="demo-cta" onclick="location.href='signup.html'">無料で試してみる →</button>
+      <button class="demo-cta" onclick="location.href='https://govmeet.jp'">無料で試してみる →</button>
     </div>
   </div>
 </div>
@@ -856,7 +1036,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
         <div class="m-form-row">
           <div class="m-form-group">
             <label class="m-label" for="m_name">お名前<span class="req">*</span></label>
-            <input class="m-input" type="text" id="m_name" placeholder="山田 太郎" required>
+            <input class="m-input" type="text" id="m_name" placeholder="山田 太郎" required="">
           </div>
           <div class="m-form-group">
             <label class="m-label" for="m_org">会社名・団体名<span class="opt">任意</span></label>
@@ -875,12 +1055,12 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
         </div>
         <div class="m-form-group">
           <label class="m-label" for="m_email">メールアドレス<span class="req">*</span></label>
-          <input class="m-input" type="email" id="m_email" placeholder="you@example.com" required>
+          <input class="m-input" type="email" id="m_email" placeholder="you@example.com" required="">
         </div>
         <div class="m-form-group">
           <label class="m-label" for="m_type">お問い合わせ種別<span class="req">*</span></label>
-          <select class="m-select" id="m_type" required>
-            <option value="" disabled selected>選択してください</option>
+          <select class="m-select" id="m_type" required="">
+            <option value="" disabled="" selected="">選択してください</option>
             <option value="プランの詳細を聞きたい">プランの詳細を聞きたい</option>
             <option value="デモを依頼したい">デモを依頼したい</option>
             <option value="プロプランに登録したい">プロプランに登録したい</option>
@@ -890,7 +1070,7 @@ footer { padding: 1.75rem 2.5rem; background: #060A12; display: flex; align-item
         </div>
         <div class="m-form-group">
           <label class="m-label" for="m_message">お問い合わせ内容<span class="req">*</span></label>
-          <textarea class="m-textarea" id="m_message" placeholder="ご質問やご要望をご記入ください。" required></textarea>
+          <textarea class="m-textarea" id="m_message" placeholder="ご質問やご要望をご記入ください。" required=""></textarea>
         </div>
         <button type="submit" class="m-submit" id="mSubmitBtn">送信する</button>
         <div class="m-mail-note">メールでも受け付けています → <a href="mailto:info@govmeet.jp">info@govmeet.jp</a></div>
@@ -939,6 +1119,261 @@ function closeModal() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDemo(); closeModal(); } });
 
+/* ━━━ 編集モード ━━━ */
+const EDITABLE_SEL = [
+  'h1','h2','p',
+  '.eyebrow','.sec-ey','.sec-h2','.sec-sub',
+  '.hero-sub-title','.hero-p',
+  '.card-name','.card-desc',
+  '.feat-name','.feat-desc',
+  '.sh-name','.sh-desc','.sh-count',
+  '.pain-title','.pain-text',
+  '.step-title','.step-text',
+  '.plan-label','.plan-price','.plan-desc','.plan-highlight','.pf',
+  '.voice-text','.voice-name','.voice-role',
+  '.faq-q','.faq-a',
+  '.stat-num','.stat-label'
+].join(',');
+
+function toggleEditMode() {
+  const on = document.body.classList.toggle('edit-mode');
+  const bar = document.getElementById('editBar');
+  const fab = document.getElementById('editToggle');
+  if (on) {
+    bar.classList.add('show');
+    fab.style.display = 'none';
+    document.querySelectorAll(EDITABLE_SEL).forEach(el => {
+      if (!el.closest('[aria-hidden="true"]') && !el.closest('#editBar')) {
+        el.contentEditable = 'true';
+      }
+    });
+    setupSectionDrag();
+  } else {
+    bar.classList.remove('show');
+    fab.style.display = 'block';
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => el.removeAttribute('contenteditable'));
+    removeDragHandles();
+  }
+}
+
+/* ━━━ セクションドラッグ並び替え ━━━ */
+let _dragSec = null;
+
+function setupSectionDrag() {
+  document.querySelectorAll('section').forEach(sec => {
+    if (sec.querySelector(':scope > .drag-handle')) return;
+    const h = document.createElement('div');
+    h.className = 'drag-handle';
+    h.innerHTML = '⣿';
+    h.title = 'ドラッグして並び替え';
+    sec.insertBefore(h, sec.firstChild);
+
+    h.addEventListener('pointerdown', () => { sec.draggable = true; });
+    h.addEventListener('pointerup',   () => { sec.draggable = false; });
+
+    sec.addEventListener('dragstart', e => {
+      _dragSec = sec;
+      sec.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    sec.addEventListener('dragend', () => {
+      sec.draggable = false;
+      sec.classList.remove('dragging');
+      document.querySelectorAll('section.drag-over').forEach(s => s.classList.remove('drag-over'));
+    });
+    sec.addEventListener('dragover', e => {
+      e.preventDefault();
+      if (sec !== _dragSec) sec.classList.add('drag-over');
+    });
+    sec.addEventListener('dragleave', e => {
+      if (!sec.contains(e.relatedTarget)) sec.classList.remove('drag-over');
+    });
+    sec.addEventListener('drop', e => {
+      e.preventDefault();
+      sec.classList.remove('drag-over');
+      if (!_dragSec || _dragSec === sec) return;
+      const all = [...document.querySelectorAll('section')];
+      const di = all.indexOf(_dragSec), ti = all.indexOf(sec);
+      sec.parentNode.insertBefore(_dragSec, di > ti ? sec : sec.nextSibling);
+      _dragSec = null;
+    });
+  });
+}
+
+function removeDragHandles() {
+  document.querySelectorAll('.drag-handle').forEach(h => h.remove());
+  document.querySelectorAll('section[draggable]').forEach(s => s.removeAttribute('draggable'));
+}
+
+/* ━━━ テキスト要素の位置移動（Alt＋ドラッグ） ━━━ */
+let _tdEl = null, _tdSX = 0, _tdSY = 0, _tdCX = 0, _tdCY = 0;
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Alt' && document.body.classList.contains('edit-mode'))
+    document.body.classList.add('alt-drag');
+});
+document.addEventListener('keyup', e => {
+  if (e.key === 'Alt') document.body.classList.remove('alt-drag');
+});
+
+document.addEventListener('mousedown', e => {
+  if (!document.body.classList.contains('edit-mode')) return;
+  if (!e.altKey) return;
+  const el = e.target.closest(EDITABLE_SEL);
+  if (!el || el.closest('#editBar') || el.closest('[aria-hidden="true"]')) return;
+  e.preventDefault();
+  _tdEl = el;
+  _tdSX = e.clientX;
+  _tdSY = e.clientY;
+  const m = new DOMMatrix(getComputedStyle(el).transform);
+  _tdCX = isFinite(m.m41) ? m.m41 : 0;
+  _tdCY = isFinite(m.m42) ? m.m42 : 0;
+  el.classList.add('text-moving');
+  el.style.transition = 'none';
+  el.style.zIndex = '500';
+  document.body.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', e => {
+  if (!_tdEl) return;
+  const dx = (e.clientX - _tdSX) + _tdCX;
+  const dy = (e.clientY - _tdSY) + _tdCY;
+  _tdEl.style.transform = `translate(${dx}px, ${dy}px)`;
+});
+
+document.addEventListener('mouseup', () => {
+  if (!_tdEl) return;
+  _tdEl.classList.remove('text-moving');
+  _tdEl.style.zIndex = '';
+  document.body.style.cursor = '';
+  _tdEl = null;
+});
+
+/* ブランドカラー一括変更 */
+function _shadeHex(hex, amt) {
+  const n = parseInt(hex.replace('#',''), 16);
+  const r = Math.min(255, Math.max(0, (n >> 16) + amt));
+  const g = Math.min(255, Math.max(0, ((n >> 8) & 0xFF) + amt));
+  const b = Math.min(255, Math.max(0, (n & 0xFF) + amt));
+  return '#' + [r, g, b].map(c => c.toString(16).padStart(2, '0')).join('');
+}
+function applyBrandColor() {
+  const navy = document.getElementById('colorNavy').value;
+  const gold = document.getElementById('colorGold').value;
+  const navyDark = _shadeHex(navy, -28);
+  const navyMid  = navy;
+  const navyDeep = _shadeHex(navy, -12);
+
+  /* ① CSSクラスベースの一括上書き */
+  let s = document.getElementById('editColorOverride');
+  if (!s) { s = document.createElement('style'); s.id = 'editColorOverride'; document.head.appendChild(s); }
+  s.textContent = `
+    .hero{background:linear-gradient(160deg,${navyDark} 0%,${navyMid} 60%,${navyDeep} 100%) !important}
+    .navy-bg,.cta-section{background:${navy} !important}
+    .btn-navy,.pb-pro,.m-submit{background:${navy} !important}
+    .btn-navy:hover,.pb-pro:hover{filter:brightness(1.15)}
+    .nav-product{color:${navy} !important}
+    .sec-h2,.sh-count,.member-name,.plan-price{color:${navy} !important}
+    .step-num,.plan-popular,.flow-center{background:${gold} !important;color:${navy} !important}
+    .btn-gold,.demo-cta{background:${gold} !important;color:${navy} !important}
+    .eyebrow,.sec-ey,.feat-icon,.sh-note-icon,.ck{color:${gold} !important}
+    .faq-item:hover{border-color:${gold} !important}
+    .sec-h2::after,.flow-arrow-line{background:${gold} !important}
+    .sh-count span,.stat-num span{color:${gold} !important}
+    .chat-av.ai{background:${navy} !important;color:${gold} !important}
+    .chat-bubble.usr{background:${navy} !important}
+    .plan.featured{border-color:${gold} !important;box-shadow:0 8px 32px ${gold}33 !important}
+    .m-input:focus,.m-textarea:focus{border-color:${gold} !important;box-shadow:0 0 0 3px ${gold}22 !important}
+    .step-badge,.chat-badge{color:${gold} !important;border-color:${gold}55 !important;background:${gold}18 !important}
+    .founder-kagi{color:${gold}14 !important}
+  `;
+
+  /* ② インラインスタイルのwave divider（CSS上書き不可のため直接書換） */
+  const defaultNavies = ['#071433','#0e2148','#0f2550','#0E2148','#071433','#0F2550'];
+  document.querySelectorAll('div[aria-hidden="true"]').forEach(el => {
+    const bg = (el.style.background || el.style.backgroundColor || '').toLowerCase();
+    if (defaultNavies.some(c => bg.includes(c.toLowerCase()))) {
+      el.style.background = navy;
+    }
+  });
+}
+
+/* 要素スタイル編集パネル */
+let _spEl = null;
+function showStylePanel(el, x, y) {
+  _spEl = el;
+  const cs = window.getComputedStyle(el);
+  document.getElementById('spColor').value = rgbToHex(cs.color);
+  document.getElementById('spBg').value = rgbToHex(cs.backgroundColor);
+  const fs = Math.round(parseFloat(cs.fontSize));
+  document.getElementById('spSize').value = fs;
+  document.getElementById('spSizeVal').textContent = fs + 'px';
+  const fw = cs.fontWeight;
+  const sel = document.getElementById('spWeight');
+  sel.value = ['300','400','500','600','700'].includes(fw) ? fw : '400';
+  const panel = document.getElementById('stylePanel');
+  panel.style.left = Math.min(x + 4, window.innerWidth - 220) + 'px';
+  panel.style.top  = Math.min(y + 4, window.innerHeight - 230) + 'px';
+  panel.style.display = 'block';
+}
+function applyElStyle(prop, val) { if (_spEl) _spEl.style[prop] = val; }
+function deleteSelectedEl() {
+  if (!_spEl) return;
+  if (confirm('この要素を削除しますか？\n（元に戻せません）')) {
+    _spEl.remove();
+    document.getElementById('stylePanel').style.display = 'none';
+    _spEl = null;
+  }
+}
+function rgbToHex(rgb) {
+  const m = rgb.match(/\d+/g);
+  return m && m.length >= 3 ? '#' + m.slice(0,3).map(n => (+n).toString(16).padStart(2,'0')).join('') : '#000000';
+}
+document.addEventListener('contextmenu', e => {
+  if (!document.body.classList.contains('edit-mode')) return;
+  const el = e.target.closest(EDITABLE_SEL);
+  if (el) { e.preventDefault(); showStylePanel(el, e.clientX, e.clientY); }
+});
+document.addEventListener('click', e => {
+  const p = document.getElementById('stylePanel');
+  if (p && p.style.display === 'block' && !p.contains(e.target)) p.style.display = 'none';
+});
+
+function downloadEditedHTML() {
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+  const body = clone.querySelector('body');
+  if (body) { body.classList.remove('edit-mode'); body.style.paddingTop = ''; }
+  const nav = clone.querySelector('.nav'); if (nav) nav.style.top = '';
+  const bar = clone.querySelector('#editBar'); if (bar) bar.classList.remove('show');
+  const sp = clone.querySelector('#stylePanel'); if (sp) sp.style.display = 'none';
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'index.html' });
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(a.href), 300);
+}
+
+/* Ctrl+Shift+E でトグル */
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'E') { e.preventDefault(); toggleEditMode(); }
+});
+
+/* スクロールフェードイン */
+(function() {
+  const targets = document.querySelectorAll('.sh-card, .card, .pain-card, .feat, .plan, .step, .faq-item');
+  targets.forEach((el, i) => {
+    el.classList.add('animate');
+    el.style.transitionDelay = ((i % 4) * 0.07) + 's';
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  targets.forEach(el => io.observe(el));
+})();
+
 document.getElementById('modalForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('mSubmitBtn');
@@ -966,5 +1401,57 @@ document.getElementById('modalForm').addEventListener('submit', async function(e
   }
 });
 </script>
-</body>
-</html>
+<!-- ━━━ 編集モードUI ━━━ -->
+<div id="editBar" class="">
+  <span class="eb-label">✏ 編集モード</span>
+  <div class="eb-sep"></div>
+  <span class="eb-hint">クリック：文字編集 &nbsp;／&nbsp; 右クリック：スタイル &nbsp;／&nbsp; Alt＋ドラッグ：位置移動</span>
+  <div class="eb-sep"></div>
+  <div class="eb-color-group">
+    <label>ネイビー</label>
+    <input type="color" id="colorNavy" value="#0E2148" oninput="applyBrandColor()">
+  </div>
+  <div class="eb-color-group">
+    <label>ゴールド</label>
+    <input type="color" id="colorGold" value="#C9A227" oninput="applyBrandColor()">
+  </div>
+  <div class="eb-spacer"></div>
+  <button class="eb-btn eb-save" onclick="downloadEditedHTML()">HTMLを保存 ↓</button>
+  <button class="eb-btn eb-close" onclick="toggleEditMode()">✕ 閉じる</button>
+</div>
+
+<div id="stylePanel" style="left: 665px; top: 502px; display: none;">
+  <div class="sp-title">スタイル編集</div>
+  <div class="sp-row">
+    <span class="sp-lbl">文字色</span>
+    <input type="color" id="spColor" oninput="applyElStyle('color',this.value)">
+  </div>
+  <div class="sp-row">
+    <span class="sp-lbl">背景色</span>
+    <input type="color" id="spBg" oninput="applyElStyle('backgroundColor',this.value)">
+  </div>
+  <div class="sp-row">
+    <span class="sp-lbl">文字サイズ</span>
+    <input type="range" id="spSize" min="10" max="72" value="16" oninput="applyElStyle('fontSize',this.value+'px');document.getElementById('spSizeVal').textContent=this.value+'px'">
+    <span class="sp-val" id="spSizeVal">14px</span>
+  </div>
+  <div class="sp-row">
+    <span class="sp-lbl">ウェイト</span>
+    <select id="spWeight" onchange="applyElStyle('fontWeight',this.value)">
+      <option value="300">Light</option>
+      <option value="400">Regular</option>
+      <option value="500" selected="">Medium</option>
+      <option value="600">SemiBold</option>
+      <option value="700">Bold</option>
+    </select>
+  </div>
+  <button class="sp-close" onclick="document.getElementById('stylePanel').style.display='none'">閉じる</button>
+  <button class="sp-delete" onclick="deleteSelectedEl()">この要素を削除</button>
+</div>
+
+<div id="editToggle" style="display: none;">
+  <button onclick="toggleEditMode()" title="編集モードを開く（Ctrl+Shift+E）">✏</button>
+</div>
+
+
+</body></html>

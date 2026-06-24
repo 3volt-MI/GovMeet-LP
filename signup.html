@@ -53,12 +53,9 @@ footer { padding: 1.5rem 2rem; background: #060A12; display: flex; align-items: 
 <div class="page-wrap">
   <div class="card">
     <a href="index.html" class="card-logo">
-      <svg width="32" height="32" viewBox="0 0 90 90">
-        <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A800"/><stop offset="100%" stop-color="#E85D00"/></linearGradient></defs>
-        <polygon points="45,4 81,22 81,68 45,86 9,68 9,22" fill="url(#lg)"/>
-        <polygon points="24,26 31,26 26,47 33,47 22,68 29,47 22,47" fill="white" opacity="0.95"/>
-        <polygon points="38,26 45,26 40,47 47,47 36,68 43,47 36,47" fill="white" opacity="0.95"/>
-        <polygon points="52,26 59,26 54,47 61,47 50,68 57,47 50,47" fill="white" opacity="0.95"/>
+      <svg width="32" height="32" viewBox="0 0 24 24" aria-label="GovMeet">
+        <rect width="24" height="24" rx="5" fill="#C9A227"/>
+        <polygon points="13,4 5,13 12,13 11,20 19,10 12,10 13,4" fill="#0E2148"/>
       </svg>
       <span class="card-logo-text">GovMeet</span>
     </a>
@@ -204,7 +201,7 @@ footer { padding: 1.5rem 2rem; background: #060A12; display: flex; align-items: 
       });
 
       // 登録完了 → ダッシュボードへ（準備中はLPへ）
-      window.location.href = 'index.html';
+      window.location.href = 'https://govmeet.jp';
 
     } catch (err) {
       showError(errorMessages[err.code] || `エラーが発生しました（${err.code}）`);
